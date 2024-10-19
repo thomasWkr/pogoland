@@ -6,12 +6,12 @@ extends CharacterBody2D
 @onready var parallax_layer2 = %ParallaxLayer2
 @onready var parallax_layer3 = %ParallaxLayer3
 @onready var parallax_layer4 = %ParallaxLayer4
+@onready var theme_player = %Theme
 
 var initial_position = 0
 var can_pogo = false
 var got_hit = false
 var bird = ''
-
 
 # Screenshake variables
 var shake_magnitude = 10  # Default shake intensity
@@ -20,7 +20,7 @@ var shake_timer = 0.0     # Timer to track the shake duration
 var original_camera_position = Vector2()
 
 
-const SPEED = 300.0
+const SPEED = 400.0
 const JUMP_VELOCITY = -600.0
 const GRAVITY = 1100.0
 const ASCEND_MULTIPLIER = 1.6  # Controls the ascend speed (higher = faster)
@@ -84,7 +84,7 @@ func _physics_process(delta: float) -> void:
 	move_and_slide()
 
 func drop_player() -> void:
-	var layer1 = main_scene.get_child(4)
+	var layer1 = main_scene.get_child(3)
 	var layer2 = parallax_layer.get_child(0)
 	var layer3 = parallax_layer2.get_child(0)
 	var layer4 = parallax_layer3.get_child(0)
@@ -112,7 +112,7 @@ func drop_player() -> void:
 
 
 func lift_player() -> void:
-	var layer1 = main_scene.get_child(4)
+	var layer1 = main_scene.get_child(3)
 	var layer2 = parallax_layer.get_child(0)
 	var layer3 = parallax_layer2.get_child(0)
 	var layer4 = parallax_layer3.get_child(0)
@@ -146,3 +146,7 @@ func death() -> void:
 
 func reload_scene() -> void:
 	get_tree().reload_current_scene()
+
+func _on_theme_finished() -> void:
+	theme_player.play(1.33)
+	pass # Replace with function body.

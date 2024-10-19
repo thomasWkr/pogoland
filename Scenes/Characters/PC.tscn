@@ -1,6 +1,7 @@
-[gd_scene load_steps=3 format=3 uid="uid://dfv2ftw51vnwq"]
+[gd_scene load_steps=4 format=3 uid="uid://dfv2ftw51vnwq"]
 
 [ext_resource type="Script" path="res://Scenes/Characters/pc.gd" id="1_nq6bv"]
+[ext_resource type="AudioStream" uid="uid://bipndfd4jcdjv" path="res://Assets/pogoland.ogg" id="2_8fyec"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_wx0n2"]
 size = Vector2(40, 40)
@@ -19,3 +20,10 @@ shape = SubResource("RectangleShape2D_wx0n2")
 [node name="Camera2D" type="Camera2D" parent="."]
 unique_name_in_owner = true
 position = Vector2(333, -52)
+
+[node name="Theme" type="AudioStreamPlayer2D" parent="."]
+unique_name_in_owner = true
+stream = ExtResource("2_8fyec")
+autoplay = true
+
+[connection signal="finished" from="Theme" to="." method="_on_theme_finished"]
