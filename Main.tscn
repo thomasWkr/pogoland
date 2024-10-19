@@ -1,0 +1,14 @@
+[gd_scene load_steps=3 format=3 uid="uid://ct8ydp7ks7cey"]
+
+[ext_resource type="PackedScene" uid="uid://dfv2ftw51vnwq" path="res://Scenes/Characters/PC.tscn" id="1_gv52n"]
+[ext_resource type="PackedScene" uid="uid://cwup8c5bfvvam" path="res://Scenes/Objects/Box.tscn" id="2_15wjp"]
+
+[node name="Main" type="Node2D"]
+
+[node name="Pc" parent="." instance=ExtResource("1_gv52n")]
+position = Vector2(-16, -19)
+
+[node name="Camera2D" type="Camera2D" parent="."]
+
+[node name="Box" parent="." instance=ExtResource("2_15wjp")]
+position = Vector2(-12, 32)
