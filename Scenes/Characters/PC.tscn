@@ -1,7 +1,6 @@
-[gd_scene load_steps=7 format=3 uid="uid://dfv2ftw51vnwq"]
+[gd_scene load_steps=6 format=3 uid="uid://dfv2ftw51vnwq"]
 
 [ext_resource type="Script" path="res://Scenes/Characters/pc.gd" id="1_nq6bv"]
-[ext_resource type="AudioStream" uid="uid://bipndfd4jcdjv" path="res://Assets/pogoland.ogg" id="2_8fyec"]
 [ext_resource type="AudioStream" uid="uid://ylh1rmjdffg8" path="res://Assets/Audio/jump.ogg" id="3_qwef1"]
 [ext_resource type="AudioStream" uid="uid://dh2x10dy0ihv8" path="res://Assets/Audio/layer.ogg" id="4_605uw"]
 [ext_resource type="AudioStream" uid="uid://c52yjqpoomcgi" path="res://Assets/Audio/death.ogg" id="5_v2ob3"]
@@ -26,7 +25,6 @@ position = Vector2(333, -52)
 
 [node name="Theme" type="AudioStreamPlayer2D" parent="."]
 unique_name_in_owner = true
-stream = ExtResource("2_8fyec")
 autoplay = true
 
 [node name="SFXPlayer" type="AudioStreamPlayer2D" parent="."]
