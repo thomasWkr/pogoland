@@ -58,7 +58,7 @@ func _physics_process(delta: float) -> void:
 	move_and_slide()
 
 func drop_player() -> void:
-	var layer1 = main_scene.get_child(2)
+	var layer1 = main_scene.get_child(3)
 	var layer2 = parallax_layer.get_child(0)
 	var layer3 = parallax_layer2.get_child(0)
 	var layer4 = parallax_layer3.get_child(0)
@@ -84,8 +84,9 @@ func drop_player() -> void:
 	layer2.reparent(parallax_layer2)
 	layer1.reparent(parallax_layer)
 
+
 func lift_player() -> void:
-	var layer1 = main_scene.get_child(2)
+	var layer1 = main_scene.get_child(3)
 	var layer2 = parallax_layer.get_child(0)
 	var layer3 = parallax_layer2.get_child(0)
 	var layer4 = parallax_layer3.get_child(0)
