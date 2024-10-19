@@ -7,7 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://mbv8mcxko8r" path="res://Scenes/Objects/layer_3.tscn" id="5_oopqg"]
 [ext_resource type="PackedScene" uid="uid://muxd3ux7fyyo" path="res://Scenes/Objects/layer_4.tscn" id="6_stnae"]
 [ext_resource type="PackedScene" uid="uid://b2adu5khviyyh" path="res://Scenes/Objects/layer_5.tscn" id="7_myrnp"]
-[ext_resource type="PackedScene" path="res://Scenes/Objects/Spike.tscn" id="8_d5p0p"]
+[ext_resource type="PackedScene" uid="uid://cp2kndnmebkxw" path="res://Scenes/Objects/Spike.tscn" id="8_d5p0p"]
 
 [node name="Main" type="Node2D"]
 
