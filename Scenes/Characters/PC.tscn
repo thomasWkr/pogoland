@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://dfv2ftw51vnwq"]
+[gd_scene load_steps=8 format=3 uid="uid://dfv2ftw51vnwq"]
 
 [ext_resource type="Script" path="res://Scenes/Characters/pc.gd" id="1_nq6bv"]
 [ext_resource type="AudioStream" uid="uid://bipndfd4jcdjv" path="res://Assets/pogoland.ogg" id="2_8fyec"]
@@ -9,12 +9,10 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_wx0n2"]
 size = Vector2(40, 40)
 
+[sub_resource type="SpriteFrames" id="SpriteFrames_0to68"]
+
 [node name="Pc" type="CharacterBody2D"]
 script = ExtResource("1_nq6bv")
-
-[node name="ColorRect" type="ColorRect" parent="."]
-offset_right = 40.0
-offset_bottom = 40.0
 
 [node name="Collision" type="CollisionShape2D" parent="."]
 position = Vector2(20, 20)
@@ -41,6 +39,11 @@ stream = ExtResource("4_605uw")
 [node name="DeathPlayer" type="AudioStreamPlayer2D" parent="."]
 unique_name_in_owner = true
 stream = ExtResource("5_v2ob3")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+texture_filter = 1
+position = Vector2(98, -21)
+sprite_frames = SubResource("SpriteFrames_0to68")
 
 [connection signal="finished" from="Theme" to="." method="_on_theme_finished"]
 [connection signal="finished" from="DeathPlayer" to="." method="_on_death_player_finished"]
