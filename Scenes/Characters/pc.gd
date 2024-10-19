@@ -12,10 +12,37 @@ var can_pogo = false
 var got_hit = false
 var bird = ''
 
+
+# Screenshake variables
+var shake_magnitude = 10  # Default shake intensity
+var shake_duration = 0.1  # Default shake duration
+var shake_timer = 0.0     # Timer to track the shake duration
+var original_camera_position = Vector2()
+
+
 const SPEED = 300.0
-const JUMP_VELOCITY = -400.0
+const JUMP_VELOCITY = -600.0
+const GRAVITY = 1100.0
+const ASCEND_MULTIPLIER = 1.6  # Controls the ascend speed (higher = faster)
+const DESCEND_MULTIPLIER = 1 # Controls the descend speed (lower = slower)
 const PARALLAXES_TOTAL = 4
 const LAYERS_TOTAL = 4
+
+
+# Function to start the screenshake effect with custom intensity and duration
+func start_screenshake(intensity: float, duration: float) -> void:
+	shake_magnitude = intensity
+	shake_duration = duration
+	original_camera_position = camera.position
+	shake_timer = shake_duration
+
+func _process(delta: float) -> void:
+	if shake_timer > 0:
+		shake_timer -= delta
+		camera.position = original_camera_position + Vector2(randi_range(-shake_magnitude, shake_magnitude), randi_range(-shake_magnitude, shake_magnitude))
+		
+		if shake_timer <= 0:
+			camera.position = original_camera_position  # Reset camera position after shaking
 
 
 func _init() -> void:
@@ -28,30 +55,36 @@ func _physics_process(delta: float) -> void:
 	
 	if (global_position.y >= 500):
 		death()
-	# Add the gravity.
+	
+	# Apply gravity only when not on the floor
 	if not is_on_floor():
-		velocity += get_gravity() * delta
+		if velocity.y < 0:  # Ascending
+			velocity.y += GRAVITY * delta * ASCEND_MULTIPLIER
+		else:  # Descending
+			velocity.y += GRAVITY * delta * DESCEND_MULTIPLIER
 
 	# Handle jump.
 	if Input.is_action_just_pressed("jump"):
 		if(is_on_floor()):
 			velocity.y = JUMP_VELOCITY
+			#start_screenshake()  # Start the screenshake when jumping
 		elif(can_pogo):
 			velocity.y = JUMP_VELOCITY
 			bird.pogoed = true
+			start_screenshake(5, 0.1)  # Small shake for pogo jump
 
-	if Input.is_action_just_pressed("Lift Layer"):
-		lift_layer()
+	if Input.is_action_just_pressed("Drop Player"):
+		drop_player()
 
-	if Input.is_action_just_pressed('Drop Layer'):
-		drop_layer()
+	if Input.is_action_just_pressed('Lift Player'):
+		lift_player()
 
 	velocity.x = SPEED
 
 	move_and_slide()
 
-func lift_layer() -> void:
-	var layer1 = main_scene.get_child(2)
+func drop_player() -> void:
+	var layer1 = main_scene.get_child(3)
 	var layer2 = parallax_layer.get_child(0)
 	var layer3 = parallax_layer2.get_child(0)
 	var layer4 = parallax_layer3.get_child(0)
@@ -77,8 +110,9 @@ func lift_layer() -> void:
 	layer2.reparent(parallax_layer2)
 	layer1.reparent(parallax_layer)
 
-func drop_layer() -> void:
-	var layer1 = main_scene.get_child(2)
+
+func lift_player() -> void:
+	var layer1 = main_scene.get_child(3)
 	var layer2 = parallax_layer.get_child(0)
 	var layer3 = parallax_layer2.get_child(0)
 	var layer4 = parallax_layer3.get_child(0)
@@ -106,7 +140,8 @@ func drop_layer() -> void:
 	layer1.reparent(parallax_layer4)
 
 func death() -> void:
-	print("died")
+	start_screenshake(50, 0.3)  # Stronger shake for death
+	await get_tree().create_timer(0.3).timeout
 	call_deferred("reload_scene")
 
 func reload_scene() -> void:

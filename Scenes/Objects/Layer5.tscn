@@ -51,7 +51,7 @@ position = Vector2(2000, 36)
 shape = SubResource("RectangleShape2D_omyqs")
 
 [node name="Spike" parent="." instance=ExtResource("1_a8tjr")]
-position = Vector2(1905, -182)
+position = Vector2(416, -191)
 color = "672352"
 
 [node name="TileMapLayer" type="TileMapLayer" parent="."]
