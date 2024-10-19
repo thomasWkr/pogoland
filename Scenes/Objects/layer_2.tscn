@@ -11,8 +11,10 @@ script = ExtResource("1_j2b6d")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(20.5, 20)
 shape = SubResource("RectangleShape2D_pjyye")
+debug_color = Color(0.1322, 0.534055, 0.294782, 0.42)
 
 [node name="ColorRect" type="ColorRect" parent="."]
+visible = false
 offset_right = 40.0
 offset_bottom = 40.0
 color = Color(1.08294e-07, 0.31649, 0.00688308, 1)

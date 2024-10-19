@@ -1,9 +1,11 @@
-[gd_scene load_steps=3 format=3 uid="uid://b7vxrnjl3jj85"]
+[gd_scene load_steps=4 format=3 uid="uid://b7vxrnjl3jj85"]
 
 [ext_resource type="Script" path="res://Scenes/Characters/bird.gd" id="1_ikggd"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_543k8"]
 size = Vector2(20, 11)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_wxdb4"]
 
 [node name="Bird" type="CharacterBody2D"]
 collision_layer = 2
@@ -20,5 +22,14 @@ color = Color(0.74441, 0.000425091, 0.744405, 1)
 position = Vector2(20, 0)
 shape = SubResource("RectangleShape2D_543k8")
 
+[node name="DetectionArea" type="Area2D" parent="."]
+
+[node name="DetectionRange" type="CollisionShape2D" parent="DetectionArea"]
+position = Vector2(20, 20)
+scale = Vector2(20, 20)
+shape = SubResource("CircleShape2D_wxdb4")
+
 [connection signal="body_entered" from="PogoDetectionArea" to="." method="_on_pogo_detection_area_body_entered"]
 [connection signal="body_exited" from="PogoDetectionArea" to="." method="_on_pogo_detection_area_body_exited"]
+[connection signal="body_entered" from="DetectionArea" to="." method="_on_detection_area_body_entered"]
+[connection signal="body_exited" from="DetectionArea" to="." method="_on_detection_area_body_exited"]

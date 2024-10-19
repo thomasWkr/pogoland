@@ -8,8 +8,10 @@ size = Vector2(39, 40)
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(20.5, 20)
 shape = SubResource("RectangleShape2D_pjyye")
+debug_color = Color(0.869985, 0.117537, 0.800274, 0.42)
 
 [node name="ColorRect" type="ColorRect" parent="."]
+visible = false
 offset_right = 40.0
 offset_bottom = 40.0
 color = Color(0.404876, 0.136623, 0.323177, 1)
