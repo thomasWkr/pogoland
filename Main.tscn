@@ -14,4 +14,4 @@ position = Vector2(-261, 28)
 scale = Vector2(100, 1)
 
 [node name="Bird" parent="." instance=ExtResource("3_grvl2")]
-position = Vector2(479, -52)
+position = Vector2(485, -72)
