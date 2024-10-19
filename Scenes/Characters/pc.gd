@@ -63,7 +63,7 @@ func _physics_process(delta: float) -> void:
 	if(alive):
 		if(got_hit or global_position.y >= 500):
 			alive = false
-			start_screenshake(50, 0.3)  
+			start_screenshake(50, 2)  
 			death_player.play()
 
 		if not is_on_floor():
