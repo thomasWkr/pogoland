@@ -1,0 +1,65 @@
+[gd_scene load_steps=7 format=3 uid="uid://ct8ydp7ks7cey"]
+
+[ext_resource type="PackedScene" uid="uid://dfv2ftw51vnwq" path="res://Scenes/Characters/PC.tscn" id="1_gv52n"]
+[ext_resource type="PackedScene" uid="uid://cwup8c5bfvvam" path="res://Scenes/Objects/Layer1.tscn" id="2_15wjp"]
+[ext_resource type="PackedScene" uid="uid://f03khr11yust" path="res://Scenes/Objects/Layer2.tscn" id="4_ps0t1"]
+[ext_resource type="PackedScene" uid="uid://mbv8mcxko8r" path="res://Scenes/Objects/Layer3.tscn" id="5_oopqg"]
+[ext_resource type="PackedScene" uid="uid://muxd3ux7fyyo" path="res://Scenes/Objects/Layer4.tscn" id="6_stnae"]
+[ext_resource type="PackedScene" uid="uid://ddwewto08vhwb" path="res://Scenes/Objects/Layer5.tscn" id="7_myrnp"]
+
+[node name="Main" type="Node2D"]
+
+[node name="Pc" parent="." instance=ExtResource("1_gv52n")]
+z_index = 1
+z_as_relative = false
+position = Vector2(47, -75)
+
+[node name="ParallaxBackground" type="ParallaxBackground" parent="."]
+layer = -1
+
+[node name="ParallaxLayer" type="ParallaxLayer" parent="ParallaxBackground"]
+unique_name_in_owner = true
+z_index = 3
+position = Vector2(0, 17)
+motion_scale = Vector2(0.8, 1)
+
+[node name="Layer2" parent="ParallaxBackground/ParallaxLayer" instance=ExtResource("4_ps0t1")]
+position = Vector2(0, -163)
+scale = Vector2(0.8, 0.8)
+
+[node name="ParallaxLayer2" type="ParallaxLayer" parent="ParallaxBackground"]
+unique_name_in_owner = true
+z_index = 2
+position = Vector2(0, 17)
+motion_scale = Vector2(0.65, 1)
+
+[node name="Layer3" parent="ParallaxBackground/ParallaxLayer2" instance=ExtResource("5_oopqg")]
+position = Vector2(0, -270)
+scale = Vector2(0.65, 0.65)
+
+[node name="ParallaxLayer3" type="ParallaxLayer" parent="ParallaxBackground"]
+unique_name_in_owner = true
+z_index = 1
+position = Vector2(0, 17)
+motion_scale = Vector2(0.55, 1)
+
+[node name="Layer4" parent="ParallaxBackground/ParallaxLayer3" instance=ExtResource("6_stnae")]
+position = Vector2(1, -347)
+scale = Vector2(0.55, 0.55)
+
+[node name="ParallaxFrontground" type="ParallaxBackground" parent="."]
+layer = 0
+
+[node name="ParallaxLayer4" type="ParallaxLayer" parent="ParallaxFrontground"]
+unique_name_in_owner = true
+motion_scale = Vector2(1.3, 1)
+
+[node name="Layer5" parent="ParallaxFrontground/ParallaxLayer4" instance=ExtResource("7_myrnp")]
+position = Vector2(-4, 121)
+scale = Vector2(1.3, 1.3)
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+
+[node name="Layer1" parent="." instance=ExtResource("2_15wjp")]
+unique_name_in_owner = true
+position = Vector2(2, -29)

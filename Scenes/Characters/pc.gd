@@ -27,6 +27,7 @@ const ASCEND_MULTIPLIER = 1.6  # Controls the ascend speed (higher = faster)
 const DESCEND_MULTIPLIER = 1 # Controls the descend speed (lower = slower)
 const PARALLAXES_TOTAL = 4
 const LAYERS_TOTAL = 4
+const TWEEN_TIME = 1
 
 
 # Function to start the screenshake effect with custom intensity and duration
@@ -118,21 +119,33 @@ func lift_player() -> void:
 	var layer4 = parallax_layer3.get_child(0)
 	var layer5 = parallax_layer4.get_child(0)
 	
-	var buffer_position_4 = layer4.global_position
+	# Buffer the positions and scales of layer4
+	var buffer_position_4 = layer4.position  # Use position instead of global_position
 	var buffer_scale_4 = layer4.scale
+
+	# Create a tween and set it to run in parallel
+	var tween = create_tween().set_parallel(true)
+	var initial_position_layer1 = layer1.position
+	print(initial_position_layer1)
+	# Tweening the properties for a smooth transition
+	tween.tween_property(layer4, "position", layer3.position, TWEEN_TIME).set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_OUT)
+	tween.tween_property(layer4, "scale", layer3.scale, TWEEN_TIME).set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_IN_OUT)
+
+	tween.tween_property(layer3, "position", layer2.position, TWEEN_TIME).set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_OUT)
+	tween.tween_property(layer3, "scale", layer2.scale, TWEEN_TIME).set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_IN_OUT)
+
+	tween.tween_property(layer2, "position", layer1.position, TWEEN_TIME).set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_OUT)
+	tween.tween_property(layer2, "scale", layer1.scale, TWEEN_TIME).set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_IN_OUT)
 	
-	layer4.global_position = layer3.global_position
-	layer4.scale = layer3.scale
-	layer3.global_position = layer2.global_position
-	layer3.scale = layer2.scale
-	layer2.global_position = layer1.global_position
-	layer2.scale = layer1.scale
-	layer1.global_position = layer5.global_position
-	layer1.scale = layer5.scale
-	
-	layer5.global_position = buffer_position_4
-	layer5.scale = buffer_scale_4
-	
+	tween.tween_property(layer1, "position", layer5.position, TWEEN_TIME).set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_OUT)
+	tween.tween_property(layer1, "scale", layer5.scale, TWEEN_TIME).set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_IN_OUT)
+
+	# Tween layer5 to its new position and scale after the others have moved
+	tween.tween_property(layer5, "position", buffer_position_4, TWEEN_TIME).set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_OUT)
+	tween.tween_property(layer5, "scale", buffer_scale_4, TWEEN_TIME).set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_IN_OUT)
+
+
+	# Reparent layers after tweening is complete
 	layer5.reparent(parallax_layer3)
 	layer4.reparent(parallax_layer2)
 	layer3.reparent(parallax_layer)
