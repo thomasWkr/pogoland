@@ -58,8 +58,6 @@ motion_scale = Vector2(1.3, 1)
 position = Vector2(-4, 121)
 scale = Vector2(1.3, 1.3)
 
-[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
-
 [node name="Layer1" parent="." instance=ExtResource("2_15wjp")]
 unique_name_in_owner = true
 position = Vector2(2, -29)

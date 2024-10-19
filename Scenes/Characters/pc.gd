@@ -6,12 +6,17 @@ extends CharacterBody2D
 @onready var parallax_layer2 = %ParallaxLayer2
 @onready var parallax_layer3 = %ParallaxLayer3
 @onready var parallax_layer4 = %ParallaxLayer4
+@onready var theme_player = %Theme
+@onready var sfx_player = %SFXPlayer
+@onready var switch_layer_player = %SwitchLayerPlayer
+@onready var death_player = %DeathPlayer
+
 
 var initial_position = 0
 var can_pogo = false
 var got_hit = false
+var alive = true
 var bird = ''
-
 
 # Screenshake variables
 var shake_magnitude = 10  # Default shake intensity
@@ -28,6 +33,13 @@ const DESCEND_MULTIPLIER = 1 # Controls the descend speed (lower = slower)
 const PARALLAXES_TOTAL = 4
 const LAYERS_TOTAL = 4
 const TWEEN_TIME = 1
+const JUMP_AUDIO = preload("res://Assets/Audio/jump.ogg")
+const FISH_AUDIO = preload("res://Assets/Audio/fish.ogg")
+const DRAGONFLY_AUDIO = preload("res://Assets/Audio/dragonfly.ogg")
+const SEAGULL_AUDIO = preload("res://Assets/Audio/seagull.ogg")
+const UFO_AUDIO = preload("res://Assets/Audio/ufo.ogg")
+const FAIRY_AUDIO = preload("res://Assets/Audio/fairy.ogg")
+
 
 
 # Function to start the screenshake effect with custom intensity and duration
@@ -50,42 +62,43 @@ func _init() -> void:
 	initial_position = global_position
 
 func _physics_process(delta: float) -> void:
-	if(got_hit):
-		got_hit = false
-		death()
-	
-	if (global_position.y >= 500):
-		death()
-	
-	# Apply gravity only when not on the floor
-	if not is_on_floor():
-		if velocity.y < 0:  # Ascending
-			velocity.y += GRAVITY * delta * ASCEND_MULTIPLIER
-		else:  # Descending
-			velocity.y += GRAVITY * delta * DESCEND_MULTIPLIER
+	if(alive):
+		if(got_hit or global_position.y >= 500):
+			alive = false
+			start_screenshake(50, 0.3)  
+			death_player.play()
 
-	# Handle jump.
-	if Input.is_action_just_pressed("jump"):
-		if(is_on_floor()):
-			velocity.y = JUMP_VELOCITY
-			#start_screenshake()  # Start the screenshake when jumping
-		elif(can_pogo):
-			velocity.y = JUMP_VELOCITY
-			bird.pogoed = true
-			start_screenshake(5, 0.1)  # Small shake for pogo jump
+		if not is_on_floor():
+			if velocity.y < 0:  # Ascending
+				velocity.y += GRAVITY * delta * ASCEND_MULTIPLIER
+			else:  # Descending
+				velocity.y += GRAVITY * delta * DESCEND_MULTIPLIER
 
-	if Input.is_action_just_pressed("Drop Player"):
-		drop_player()
+		if Input.is_action_just_pressed("jump"):
+			if(is_on_floor()):
+				play_sfx(JUMP_AUDIO, -10.0)
+				velocity.y = JUMP_VELOCITY
+				#start_screenshake()  # Start the screenshake when jumping
+			elif(can_pogo):
+				type_of_bird(bird.name)
+				velocity.y = JUMP_VELOCITY
+				bird.pogoed = true
+				start_screenshake(5, 0.1)  # Small shake for pogo jump
 
-	if Input.is_action_just_pressed('Lift Player'):
-		lift_player()
+		elif Input.is_action_just_pressed("Drop Player"):
+			switch_layer_player.play()
+			drop_player()
 
-	velocity.x = SPEED
+		elif Input.is_action_just_pressed('Lift Player'):
+			switch_layer_player.play()
+			lift_player()
 
-	move_and_slide()
+		velocity.x = SPEED
+
+		move_and_slide()
 
 func drop_player() -> void:
-	var layer1 = main_scene.get_child(4)
+	var layer1 = main_scene.get_child(3)
 	var layer2 = parallax_layer.get_child(0)
 	var layer3 = parallax_layer2.get_child(0)
 	var layer4 = parallax_layer3.get_child(0)
@@ -113,7 +126,7 @@ func drop_player() -> void:
 
 
 func lift_player() -> void:
-	var layer1 = main_scene.get_child(4)
+	var layer1 = main_scene.get_child(3)
 	var layer2 = parallax_layer.get_child(0)
 	var layer3 = parallax_layer2.get_child(0)
 	var layer4 = parallax_layer3.get_child(0)
@@ -152,10 +165,29 @@ func lift_player() -> void:
 	layer2.reparent(main_scene)
 	layer1.reparent(parallax_layer4)
 
-func death() -> void:
-	start_screenshake(50, 0.3)  # Stronger shake for death
-	await get_tree().create_timer(0.3).timeout
-	call_deferred("reload_scene")
-
 func reload_scene() -> void:
 	get_tree().reload_current_scene()
+
+func play_sfx(audio: AudioStreamOggVorbis, volume_intensity: float) -> void:
+	sfx_player.volume_db = volume_intensity
+	sfx_player.stream = audio
+	sfx_player.play()
+
+func type_of_bird(bird_name):
+	if(bird_name.contains('Fish')):
+		play_sfx(FISH_AUDIO, 0.0)
+	elif(bird_name.contains('Dragonfly')):
+		play_sfx(DRAGONFLY_AUDIO, 0.0)
+	elif(bird.name.contains("Seagull")):
+		play_sfx(SEAGULL_AUDIO, 0.0)
+	elif(bird.name.contains("UFO")):
+		play_sfx(UFO_AUDIO, 0.0)
+	elif(bird.name.contains("Fairy")):
+		play_sfx(FAIRY_AUDIO, 0.0)
+
+func _on_theme_finished() -> void:
+	theme_player.play(1.33)
+
+func _on_death_player_finished() -> void:
+	await get_tree().create_timer(0.3).timeout
+	call_deferred("reload_scene")
