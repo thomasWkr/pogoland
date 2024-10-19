@@ -39,35 +39,69 @@ func _physics_process(delta: float) -> void:
 			bird.pogoed = true
 
 	if Input.is_action_just_pressed("Lift Layer"):
-		var layer1 = main_scene.get_child(2)
-		var layer2 = parallax_layer.get_child(0)
-		var layer3 = parallax_layer2.get_child(0)
-		var layer4 = parallax_layer3.get_child(0)
-		var layer5 = parallax_layer4.get_child(0)
-		
-		var buffer_position_1 = layer1.global_position
-		
-		layer1.global_position = layer2.global_position
-		layer1.scale = layer2.scale
-		layer2.global_position = layer3.global_position
-		layer2.scale = layer3.scale
-		layer3.global_position = layer4.global_position
-		layer3.scale = layer4.scale
-		layer4.global_position = layer5.global_position
-		layer4.scale = layer5.scale
-		
-		layer5.global_position = buffer_position_1
-		layer5.scale = Vector2(1,1)
-		
-		layer5.reparent(main_scene)
-		layer4.reparent(parallax_layer4)
-		layer3.reparent(parallax_layer3)
-		layer2.reparent(parallax_layer2)
-		layer1.reparent(parallax_layer)
+		lift_layer()
+
+	if Input.is_action_just_pressed('Drop Layer'):
+		drop_layer()
 
 	velocity.x = SPEED
 
 	move_and_slide()
+
+func lift_layer() -> void:
+	var layer1 = main_scene.get_child(2)
+	var layer2 = parallax_layer.get_child(0)
+	var layer3 = parallax_layer2.get_child(0)
+	var layer4 = parallax_layer3.get_child(0)
+	var layer5 = parallax_layer4.get_child(0)
+	
+	var buffer_position_1 = layer1.global_position
+	
+	layer1.global_position = layer2.global_position
+	layer1.scale = layer2.scale
+	layer2.global_position = layer3.global_position
+	layer2.scale = layer3.scale
+	layer3.global_position = layer4.global_position
+	layer3.scale = layer4.scale
+	layer4.global_position = layer5.global_position
+	layer4.scale = layer5.scale
+	
+	layer5.global_position = buffer_position_1
+	layer5.scale = Vector2(1,1)
+	
+	layer5.reparent(main_scene)
+	layer4.reparent(parallax_layer4)
+	layer3.reparent(parallax_layer3)
+	layer2.reparent(parallax_layer2)
+	layer1.reparent(parallax_layer)
+
+func drop_layer() -> void:
+	var layer1 = main_scene.get_child(2)
+	var layer2 = parallax_layer.get_child(0)
+	var layer3 = parallax_layer2.get_child(0)
+	var layer4 = parallax_layer3.get_child(0)
+	var layer5 = parallax_layer4.get_child(0)
+	
+	var buffer_position_4 = layer4.global_position
+	var buffer_scale_4 = layer4.scale
+	
+	layer4.global_position = layer3.global_position
+	layer4.scale = layer3.scale
+	layer3.global_position = layer2.global_position
+	layer3.scale = layer2.scale
+	layer2.global_position = layer1.global_position
+	layer2.scale = layer1.scale
+	layer1.global_position = layer5.global_position
+	layer1.scale = layer5.scale
+	
+	layer5.global_position = buffer_position_4
+	layer5.scale = buffer_scale_4
+	
+	layer5.reparent(parallax_layer3)
+	layer4.reparent(parallax_layer2)
+	layer3.reparent(parallax_layer)
+	layer2.reparent(main_scene)
+	layer1.reparent(parallax_layer4)
 
 func death() -> void:
 	print("died")
