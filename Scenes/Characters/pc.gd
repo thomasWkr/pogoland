@@ -14,6 +14,9 @@ var bird = ''
 
 const SPEED = 300.0
 const JUMP_VELOCITY = -400.0
+const GRAVITY = 900.0
+const ASCEND_MULTIPLIER = 2  # Controls the ascend speed (higher = faster)
+const DESCEND_MULTIPLIER = 0.6 # Controls the descend speed (lower = slower)
 const PARALLAXES_TOTAL = 4
 const LAYERS_TOTAL = 4
 
@@ -29,8 +32,15 @@ func _physics_process(delta: float) -> void:
 	if (global_position.y >= 500):
 		death()
 	# Add the gravity.
+	#if not is_on_floor():
+	#	velocity += get_gravity() * delta
+	
+	# Apply gravity only when not on the floor
 	if not is_on_floor():
-		velocity += get_gravity() * delta
+		if velocity.y < 0:  # Ascending
+			velocity.y += GRAVITY * delta * ASCEND_MULTIPLIER
+		else:  # Descending
+			velocity.y += GRAVITY * delta * DESCEND_MULTIPLIER
 
 	# Handle jump.
 	if Input.is_action_just_pressed("jump"):
@@ -40,17 +50,17 @@ func _physics_process(delta: float) -> void:
 			velocity.y = JUMP_VELOCITY
 			bird.pogoed = true
 
-	if Input.is_action_just_pressed("Lift Layer"):
-		lift_layer()
+	if Input.is_action_just_pressed("Drop Player"):
+		drop_player()
 
-	if Input.is_action_just_pressed('Drop Layer'):
-		drop_layer()
+	if Input.is_action_just_pressed('Lift Player'):
+		lift_player()
 
 	velocity.x = SPEED
 
 	move_and_slide()
 
-func lift_layer() -> void:
+func drop_player() -> void:
 	var layer1 = main_scene.get_child(2)
 	var layer2 = parallax_layer.get_child(0)
 	var layer3 = parallax_layer2.get_child(0)
@@ -77,7 +87,7 @@ func lift_layer() -> void:
 	layer2.reparent(parallax_layer2)
 	layer1.reparent(parallax_layer)
 
-func drop_layer() -> void:
+func lift_player() -> void:
 	var layer1 = main_scene.get_child(2)
 	var layer2 = parallax_layer.get_child(0)
 	var layer3 = parallax_layer2.get_child(0)
