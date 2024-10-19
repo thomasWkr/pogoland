@@ -44,7 +44,7 @@ position = Vector2(0, 17)
 motion_scale = Vector2(0.55, 1)
 
 [node name="Layer4" parent="ParallaxBackground/ParallaxLayer3" instance=ExtResource("6_stnae")]
-position = Vector2(1, -347)
+position = Vector2(2, -411)
 scale = Vector2(0.55, 0.55)
 
 [node name="ParallaxFrontground" type="ParallaxBackground" parent="."]

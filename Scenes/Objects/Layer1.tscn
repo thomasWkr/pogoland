@@ -6,7 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://imqmgfneaap0" path="res://Assets/Floor.png" id="4_6ien4"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_k5yga"]
-size = Vector2(3.999e+08, 3)
+size = Vector2(3.999e+08, 348)
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_8gtis"]
 texture = ExtResource("4_6ien4")
@@ -50,12 +50,12 @@ sources/0 = SubResource("TileSetAtlasSource_8gtis")
 script = ExtResource("1_7ta1d")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(2000.5, 38.5)
+position = Vector2(2000.5, 211)
 scale = Vector2(1e-05, 1)
 shape = SubResource("RectangleShape2D_k5yga")
 
 [node name="Spike" parent="." instance=ExtResource("2_mnu40")]
-position = Vector2(568, -20)
+position = Vector2(632, 5)
 color = "000089"
 
 [node name="TileMapLayer" type="TileMapLayer" parent="."]

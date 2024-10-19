@@ -10,6 +10,7 @@ extends CharacterBody2D
 @onready var sfx_player = %SFXPlayer
 @onready var switch_layer_player = %SwitchLayerPlayer
 @onready var death_player = %DeathPlayer
+@onready var animation = %AnimatedSprite2D
 
 
 var initial_position = 0
@@ -58,6 +59,9 @@ func _process(delta: float) -> void:
 
 func _init() -> void:
 	initial_position = global_position
+
+func _ready() -> void:
+	animation.play()
 
 func _physics_process(delta: float) -> void:
 	if(alive):
