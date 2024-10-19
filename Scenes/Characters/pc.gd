@@ -1,9 +1,10 @@
 extends CharacterBody2D
 
+var can_pogo = false
+var bird = ''
 
 const SPEED = 300.0
 const JUMP_VELOCITY = -400.0
-
 
 func _physics_process(delta: float) -> void:
 	# Add the gravity.
@@ -11,8 +12,12 @@ func _physics_process(delta: float) -> void:
 		velocity += get_gravity() * delta
 
 	# Handle jump.
-	if Input.is_action_just_pressed("jump") and is_on_floor():
-		velocity.y = JUMP_VELOCITY
+	if Input.is_action_just_pressed("jump"):
+		if(is_on_floor()):
+			velocity.y = JUMP_VELOCITY
+		elif(can_pogo):
+			velocity.y = JUMP_VELOCITY
+			bird.pogoed = true
 
 	velocity.x = SPEED
 

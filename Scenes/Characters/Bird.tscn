@@ -3,9 +3,10 @@
 [ext_resource type="Script" path="res://Scenes/Characters/bird.gd" id="1_ikggd"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_543k8"]
-size = Vector2(40, 19)
+size = Vector2(20, 11)
 
-[node name="Bird" type="Area2D"]
+[node name="Bird" type="CharacterBody2D"]
+collision_layer = 2
 script = ExtResource("1_ikggd")
 
 [node name="ColorRect" type="ColorRect" parent="."]
@@ -13,8 +14,11 @@ offset_right = 40.0
 offset_bottom = 40.0
 color = Color(0.74441, 0.000425091, 0.744405, 1)
 
-[node name="PogoDetectionArea" type="CollisionShape2D" parent="."]
-position = Vector2(20, 3.5)
+[node name="PogoDetectionArea" type="Area2D" parent="."]
+
+[node name="DetectionArea" type="CollisionShape2D" parent="PogoDetectionArea"]
+position = Vector2(20, 0)
 shape = SubResource("RectangleShape2D_543k8")
 
-[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="body_entered" from="PogoDetectionArea" to="." method="_on_pogo_detection_area_body_entered"]
+[connection signal="body_exited" from="PogoDetectionArea" to="." method="_on_pogo_detection_area_body_exited"]
