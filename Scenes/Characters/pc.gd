@@ -12,6 +12,14 @@ var can_pogo = false
 var got_hit = false
 var bird = ''
 
+
+# Screenshake variables
+var shake_magnitude = 10  # Default shake intensity
+var shake_duration = 0.1  # Default shake duration
+var shake_timer = 0.0     # Timer to track the shake duration
+var original_camera_position = Vector2()
+
+
 const SPEED = 300.0
 const JUMP_VELOCITY = -600.0
 const GRAVITY = 1100.0
@@ -19,6 +27,22 @@ const ASCEND_MULTIPLIER = 1.6  # Controls the ascend speed (higher = faster)
 const DESCEND_MULTIPLIER = 1 # Controls the descend speed (lower = slower)
 const PARALLAXES_TOTAL = 4
 const LAYERS_TOTAL = 4
+
+
+# Function to start the screenshake effect with custom intensity and duration
+func start_screenshake(intensity: float, duration: float) -> void:
+	shake_magnitude = intensity
+	shake_duration = duration
+	original_camera_position = camera.position
+	shake_timer = shake_duration
+
+func _process(delta: float) -> void:
+	if shake_timer > 0:
+		shake_timer -= delta
+		camera.position = original_camera_position + Vector2(randi_range(-shake_magnitude, shake_magnitude), randi_range(-shake_magnitude, shake_magnitude))
+		
+		if shake_timer <= 0:
+			camera.position = original_camera_position  # Reset camera position after shaking
 
 
 func _init() -> void:
@@ -43,9 +67,11 @@ func _physics_process(delta: float) -> void:
 	if Input.is_action_just_pressed("jump"):
 		if(is_on_floor()):
 			velocity.y = JUMP_VELOCITY
+			#start_screenshake()  # Start the screenshake when jumping
 		elif(can_pogo):
 			velocity.y = JUMP_VELOCITY
 			bird.pogoed = true
+			start_screenshake(5, 0.1)  # Small shake for pogo jump
 
 	if Input.is_action_just_pressed("Drop Player"):
 		drop_player()
@@ -114,7 +140,8 @@ func lift_player() -> void:
 	layer1.reparent(parallax_layer4)
 
 func death() -> void:
-	print("died")
+	start_screenshake(50, 0.3)  # Stronger shake for death
+	await get_tree().create_timer(0.3).timeout
 	call_deferred("reload_scene")
 
 func reload_scene() -> void:
