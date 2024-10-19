@@ -9,7 +9,7 @@ var player: Node2D = null
 
 func _physics_process(_delta: float) -> void:
 	if(pogoed):
-		print('test')
+		pass
 	else:
 		velocity.x = -SPEED
 
