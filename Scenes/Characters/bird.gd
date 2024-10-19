@@ -10,7 +10,7 @@ func _physics_process(_delta: float) -> void:
 		velocity.x = -SPEED
 
 	move_and_slide()
-	
+
 func _on_pogo_detection_area_body_entered(body: Node2D) -> void:
 	if(body.name == "Pc"):
 		body.can_pogo = true

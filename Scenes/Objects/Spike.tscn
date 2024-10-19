@@ -11,5 +11,10 @@ position = Vector2(7.00001, -1)
 scale = Vector2(7, 6.937)
 polygon = PackedVector2Array(-4, 2.98108, 2, 2.98108, -1, -4)
 
+[node name="Polygon2D" type="Polygon2D" parent="."]
+unique_name_in_owner = true
+color = Color(0, 1, 1, 1)
+polygon = PackedVector2Array(-21, 20, 0, -28, 21, 20)
+
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
 [connection signal="body_exited" from="." to="." method="_on_body_exited"]
