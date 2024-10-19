@@ -1,7 +1,8 @@
-[gd_scene load_steps=4 format=3 uid="uid://cwup8c5bfvvam"]
+[gd_scene load_steps=5 format=3 uid="uid://cwup8c5bfvvam"]
 
 [ext_resource type="Script" path="res://Scenes/Objects/Layer1.gd" id="1_7ta1d"]
 [ext_resource type="PackedScene" uid="uid://cp2kndnmebkxw" path="res://Scenes/Objects/Spike.tscn" id="2_mnu40"]
+[ext_resource type="PackedScene" uid="uid://b7vxrnjl3jj85" path="res://Scenes/Characters/Bird.tscn" id="3_461rh"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_k5yga"]
 size = Vector2(3.999e+08, 40)
@@ -23,3 +24,6 @@ color = Color(1.8771e-06, 0, 0.537136, 1)
 [node name="Spike" parent="." instance=ExtResource("2_mnu40")]
 position = Vector2(568, -20)
 color = "000089"
+
+[node name="Bird" parent="." instance=ExtResource("3_461rh")]
+position = Vector2(449, -90)
