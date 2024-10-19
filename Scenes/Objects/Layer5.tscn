@@ -18,5 +18,5 @@ scale = Vector2(100, 1)
 color = Color(0.403922, 0.137255, 0.321569, 1)
 
 [node name="Spike" parent="." instance=ExtResource("1_a8tjr")]
-position = Vector2(2775, -20)
+position = Vector2(1905, -182)
 color = "672352"

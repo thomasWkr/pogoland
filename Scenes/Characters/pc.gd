@@ -25,7 +25,9 @@ func _physics_process(delta: float) -> void:
 	if(got_hit):
 		got_hit = false
 		death()
-
+	
+	if (global_position.y >= 500):
+		death()
 	# Add the gravity.
 	if not is_on_floor():
 		velocity += get_gravity() * delta

@@ -10,7 +10,7 @@
 [node name="Main" type="Node2D"]
 
 [node name="Pc" parent="." instance=ExtResource("1_gv52n")]
-position = Vector2(38, -20)
+position = Vector2(47, -75)
 
 [node name="ParallaxBackground" type="ParallaxBackground" parent="."]
 
@@ -19,7 +19,7 @@ unique_name_in_owner = true
 motion_scale = Vector2(0.8, 1)
 
 [node name="Layer2" parent="ParallaxBackground/ParallaxLayer" instance=ExtResource("4_ps0t1")]
-position = Vector2(0, -140)
+position = Vector2(0, -163)
 scale = Vector2(0.8, 0.8)
 
 [node name="ParallaxLayer2" type="ParallaxLayer" parent="ParallaxBackground"]
@@ -27,7 +27,7 @@ unique_name_in_owner = true
 motion_scale = Vector2(0.65, 1)
 
 [node name="Layer3" parent="ParallaxBackground/ParallaxLayer2" instance=ExtResource("5_oopqg")]
-position = Vector2(0, -250)
+position = Vector2(0, -270)
 scale = Vector2(0.65, 0.65)
 
 [node name="ParallaxLayer3" type="ParallaxLayer" parent="ParallaxBackground"]
@@ -40,12 +40,14 @@ scale = Vector2(0.55, 0.55)
 
 [node name="ParallaxLayer4" type="ParallaxLayer" parent="ParallaxBackground"]
 unique_name_in_owner = true
-motion_scale = Vector2(0.5, 1)
+z_index = 11
+z_as_relative = false
+motion_scale = Vector2(1.3, 1)
 
 [node name="Layer5" parent="ParallaxBackground/ParallaxLayer4" instance=ExtResource("7_myrnp")]
-position = Vector2(1, -429)
-scale = Vector2(0.5, 0.5)
+position = Vector2(-4, 121)
+scale = Vector2(1.3, 1.3)
 
 [node name="Layer1" parent="." instance=ExtResource("2_15wjp")]
 unique_name_in_owner = true
-position = Vector2(2, 31)
+position = Vector2(2, -29)

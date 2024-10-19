@@ -26,7 +26,7 @@ shape = SubResource("RectangleShape2D_543k8")
 
 [node name="DetectionRange" type="CollisionShape2D" parent="DetectionaArea"]
 position = Vector2(20, 20)
-scale = Vector2(50, 50)
+scale = Vector2(10, 10)
 shape = SubResource("CircleShape2D_qbd8u")
 
 [connection signal="body_entered" from="PogoDetectionArea" to="." method="_on_pogo_detection_area_body_entered"]

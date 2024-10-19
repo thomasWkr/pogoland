@@ -18,4 +18,4 @@ shape = SubResource("RectangleShape2D_wx0n2")
 
 [node name="Camera2D" type="Camera2D" parent="."]
 unique_name_in_owner = true
-position = Vector2(304, -166)
+position = Vector2(333, -52)
