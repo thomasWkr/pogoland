@@ -12,7 +12,7 @@
 [node name="Pc" parent="." instance=ExtResource("1_gv52n")]
 z_index = 1
 z_as_relative = false
-position = Vector2(47, -75)
+position = Vector2(71, -78)
 
 [node name="ParallaxBackground" type="ParallaxBackground" parent="."]
 layer = -1

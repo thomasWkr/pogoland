@@ -1,12 +1,25 @@
 [gd_scene load_steps=8 format=4 uid="uid://cwup8c5bfvvam"]
 
-[ext_resource type="Script" path="res://Scenes/Objects/Layer1.gd" id="1_7ta1d"]
 [ext_resource type="PackedScene" uid="uid://cp2kndnmebkxw" path="res://Scenes/Objects/Spike.tscn" id="2_mnu40"]
 [ext_resource type="PackedScene" uid="uid://b7vxrnjl3jj85" path="res://Scenes/Characters/Bird.tscn" id="3_461rh"]
 [ext_resource type="Texture2D" uid="uid://imqmgfneaap0" path="res://Assets/Floor.png" id="4_6ien4"]
 
+[sub_resource type="GDScript" id="GDScript_dvaas"]
+script/source = "extends StaticBody2D
+
+
+# Called when the node enters the scene tree for the first time.
+func _ready() -> void:
+	pass # Replace with function body.
+
+
+# Called every frame. 'delta' is the elapsed time since the previous frame.
+func _process(_delta: float) -> void:
+	pass
+"
+
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_k5yga"]
-size = Vector2(3.999e+08, 348)
+size = Vector2(4e+08, 340)
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_8gtis"]
 texture = ExtResource("4_6ien4")
@@ -47,10 +60,10 @@ texture = ExtResource("4_6ien4")
 sources/0 = SubResource("TileSetAtlasSource_8gtis")
 
 [node name="Layer1" type="StaticBody2D"]
-script = ExtResource("1_7ta1d")
+script = SubResource("GDScript_dvaas")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(2000.5, 211)
+position = Vector2(2000, 215)
 scale = Vector2(1e-05, 1)
 shape = SubResource("RectangleShape2D_k5yga")
 
