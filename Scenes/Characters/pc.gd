@@ -17,9 +17,9 @@ func _physics_process(delta: float) -> void:
 			velocity.y = JUMP_VELOCITY
 		elif(can_pogo):
 			velocity.y = JUMP_VELOCITY
-      bird.pogoed = true
+			bird.pogoed = true
 	
-	#if Input.is_action_just_pressed("Lift Layer"):
+#if Input.is_action_just_pressed("Lift Layer"):
   
 	velocity.x = SPEED
 
