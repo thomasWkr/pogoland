@@ -13,10 +13,10 @@ var got_hit = false
 var bird = ''
 
 const SPEED = 300.0
-const JUMP_VELOCITY = -400.0
-const GRAVITY = 900.0
-const ASCEND_MULTIPLIER = 2  # Controls the ascend speed (higher = faster)
-const DESCEND_MULTIPLIER = 0.6 # Controls the descend speed (lower = slower)
+const JUMP_VELOCITY = -600.0
+const GRAVITY = 1100.0
+const ASCEND_MULTIPLIER = 1.6  # Controls the ascend speed (higher = faster)
+const DESCEND_MULTIPLIER = 1 # Controls the descend speed (lower = slower)
 const PARALLAXES_TOTAL = 4
 const LAYERS_TOTAL = 4
 
@@ -31,9 +31,6 @@ func _physics_process(delta: float) -> void:
 	
 	if (global_position.y >= 500):
 		death()
-	# Add the gravity.
-	#if not is_on_floor():
-	#	velocity += get_gravity() * delta
 	
 	# Apply gravity only when not on the floor
 	if not is_on_floor():
