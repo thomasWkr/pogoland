@@ -1,25 +1,20 @@
-[gd_scene load_steps=9 format=3 uid="uid://ct8ydp7ks7cey"]
+[gd_scene load_steps=8 format=3 uid="uid://ct8ydp7ks7cey"]
 
 [ext_resource type="PackedScene" uid="uid://dfv2ftw51vnwq" path="res://Scenes/Characters/PC.tscn" id="1_gv52n"]
 [ext_resource type="PackedScene" uid="uid://cwup8c5bfvvam" path="res://Scenes/Objects/Layer1.tscn" id="2_15wjp"]
 [ext_resource type="PackedScene" uid="uid://b7vxrnjl3jj85" path="res://Scenes/Characters/Bird.tscn" id="3_grvl2"]
-[ext_resource type="PackedScene" uid="uid://ev6c8pcaj0kp" path="res://Scenes/Objects/layer_2.tscn" id="4_ps0t1"]
-[ext_resource type="PackedScene" uid="uid://mbv8mcxko8r" path="res://Scenes/Objects/layer_3.tscn" id="5_oopqg"]
-[ext_resource type="PackedScene" uid="uid://muxd3ux7fyyo" path="res://Scenes/Objects/layer_4.tscn" id="6_stnae"]
-[ext_resource type="PackedScene" uid="uid://b2adu5khviyyh" path="res://Scenes/Objects/layer_5.tscn" id="7_myrnp"]
-[ext_resource type="PackedScene" path="res://Scenes/Objects/Spike.tscn" id="8_d5p0p"]
+[ext_resource type="PackedScene" uid="uid://f03khr11yust" path="res://Scenes/Objects/Layer2.tscn" id="4_ps0t1"]
+[ext_resource type="PackedScene" uid="uid://mbv8mcxko8r" path="res://Scenes/Objects/Layer3.tscn" id="5_oopqg"]
+[ext_resource type="PackedScene" uid="uid://muxd3ux7fyyo" path="res://Scenes/Objects/Layer4.tscn" id="6_stnae"]
+[ext_resource type="PackedScene" uid="uid://ddwewto08vhwb" path="res://Scenes/Objects/Layer5.tscn" id="7_myrnp"]
 
 [node name="Main" type="Node2D"]
 
 [node name="Pc" parent="." instance=ExtResource("1_gv52n")]
-position = Vector2(-16, -19)
+position = Vector2(38, -20)
 
-[node name="Box" parent="." instance=ExtResource("2_15wjp")]
-position = Vector2(-151, 28)
-scale = Vector2(100, 1)
-
-[node name="Spike" parent="." instance=ExtResource("8_d5p0p")]
-position = Vector2(560, 9)
+[node name="Layer1" parent="." instance=ExtResource("2_15wjp")]
+position = Vector2(2, 31)
 
 [node name="Bird" parent="." instance=ExtResource("3_grvl2")]
 position = Vector2(479, -52)
@@ -27,29 +22,29 @@ position = Vector2(479, -52)
 [node name="ParallaxBackground" type="ParallaxBackground" parent="."]
 
 [node name="ParallaxLayer" type="ParallaxLayer" parent="ParallaxBackground"]
-motion_scale = Vector2(0.7, 1)
+motion_scale = Vector2(0.8, 1)
 
 [node name="Layer2" parent="ParallaxBackground/ParallaxLayer" instance=ExtResource("4_ps0t1")]
-position = Vector2(31, -50)
-scale = Vector2(70, 0.7)
+position = Vector2(0, -140)
+scale = Vector2(0.8, 0.8)
 
 [node name="ParallaxLayer2" type="ParallaxLayer" parent="ParallaxBackground"]
-motion_scale = Vector2(0.5, 1)
+motion_scale = Vector2(0.65, 1)
 
-[node name="Layer2" parent="ParallaxBackground/ParallaxLayer2" instance=ExtResource("5_oopqg")]
-position = Vector2(116, -101)
-scale = Vector2(50, 0.5)
+[node name="Layer3" parent="ParallaxBackground/ParallaxLayer2" instance=ExtResource("5_oopqg")]
+position = Vector2(0, -250)
+scale = Vector2(0.65, 0.65)
 
 [node name="ParallaxLayer3" type="ParallaxLayer" parent="ParallaxBackground"]
-motion_scale = Vector2(0.3, 1)
+motion_scale = Vector2(0.55, 1)
 
-[node name="Layer3" parent="ParallaxBackground/ParallaxLayer3" instance=ExtResource("6_stnae")]
-position = Vector2(161, -135)
-scale = Vector2(30, 0.3)
+[node name="Layer4" parent="ParallaxBackground/ParallaxLayer3" instance=ExtResource("6_stnae")]
+position = Vector2(1, -347)
+scale = Vector2(0.55, 0.55)
 
 [node name="ParallaxLayer4" type="ParallaxLayer" parent="ParallaxBackground"]
-motion_scale = Vector2(0.2, 1)
+motion_scale = Vector2(0.5, 1)
 
-[node name="Layer4" parent="ParallaxBackground/ParallaxLayer4" instance=ExtResource("7_myrnp")]
-position = Vector2(182, -157)
-scale = Vector2(20, 0.2)
+[node name="Layer5" parent="ParallaxBackground/ParallaxLayer4" instance=ExtResource("7_myrnp")]
+position = Vector2(1, -429)
+scale = Vector2(0.5, 0.5)

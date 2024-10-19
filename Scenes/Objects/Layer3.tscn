@@ -1,4 +1,6 @@
-[gd_scene load_steps=2 format=3 uid="uid://mbv8mcxko8r"]
+[gd_scene load_steps=3 format=3 uid="uid://mbv8mcxko8r"]
+
+[ext_resource type="PackedScene" uid="uid://cp2kndnmebkxw" path="res://Scenes/Objects/Spike.tscn" id="1_6pqpt"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_pjyye"]
 size = Vector2(39, 40)
@@ -6,10 +8,16 @@ size = Vector2(39, 40)
 [node name="Layer3" type="StaticBody2D"]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(20.5, 20)
+position = Vector2(1950, 20)
+scale = Vector2(100, 1)
 shape = SubResource("RectangleShape2D_pjyye")
 
 [node name="ColorRect" type="ColorRect" parent="."]
 offset_right = 40.0
 offset_bottom = 40.0
+scale = Vector2(100, 1)
 color = Color(0.813123, 0.742131, 1.54018e-06, 1)
+
+[node name="Spike" parent="." instance=ExtResource("1_6pqpt")]
+position = Vector2(763, -19)
+color = "cfbd00"

@@ -38,5 +38,8 @@ func _physics_process(delta: float) -> void:
 	move_and_slide()
 
 func death() -> void:
-	# Respawn the player to the original position
-	global_position = initial_position
+	print("died")
+	call_deferred("reload_scene")
+
+func reload_scene() -> void:
+	get_tree().reload_current_scene()
