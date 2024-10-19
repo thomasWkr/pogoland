@@ -65,7 +65,51 @@ tile_map_data = PackedByteArray("AAAAAAAAAAAAAAAAAAAAAAEAAAAAAAEAAAAAAAIAAAAAAAI
 tile_set = SubResource("TileSet_0ncai")
 
 [node name="Dragonfly" parent="." instance=ExtResource("3_hqttb")]
-position = Vector2(2109, -96)
+position = Vector2(2093, -99)
 
 [node name="Dragonfly2" parent="." instance=ExtResource("3_hqttb")]
 position = Vector2(1110, -85)
+
+[node name="Dragonfly3" parent="." instance=ExtResource("3_hqttb")]
+position = Vector2(2306, -95)
+
+[node name="Dragonfly4" parent="." instance=ExtResource("3_hqttb")]
+position = Vector2(2527, -99)
+
+[node name="Dragonfly5" parent="." instance=ExtResource("3_hqttb")]
+position = Vector2(2731, -104)
+
+[node name="Dragonfly6" parent="." instance=ExtResource("3_hqttb")]
+position = Vector2(2935, -96)
+
+[node name="Spike2" parent="." instance=ExtResource("2_soq7l")]
+position = Vector2(2215, -13)
+color = "005102"
+
+[node name="Spike3" parent="." instance=ExtResource("2_soq7l")]
+position = Vector2(2441, -16)
+color = "005102"
+
+[node name="Spike4" parent="." instance=ExtResource("2_soq7l")]
+position = Vector2(2643, -16)
+color = "005102"
+
+[node name="Spike5" parent="." instance=ExtResource("2_soq7l")]
+position = Vector2(2847, -16)
+color = "005102"
+
+[node name="Spike6" parent="." instance=ExtResource("2_soq7l")]
+position = Vector2(3084, -16)
+color = "005102"
+
+[node name="Spike7" parent="." instance=ExtResource("2_soq7l")]
+position = Vector2(3137, -18)
+color = "005102"
+
+[node name="Spike8" parent="." instance=ExtResource("2_soq7l")]
+position = Vector2(3187, -21)
+color = "005102"
+
+[node name="Spike9" parent="." instance=ExtResource("2_soq7l")]
+position = Vector2(3237, -21)
+color = "005102"
