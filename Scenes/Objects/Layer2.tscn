@@ -1,8 +1,9 @@
-[gd_scene load_steps=8 format=4 uid="uid://f03khr11yust"]
+[gd_scene load_steps=9 format=4 uid="uid://f03khr11yust"]
 
 [ext_resource type="Texture2D" uid="uid://bl158qn5f0o22" path="res://Assets/Sprites/Floor.png" id="1_1t4cx"]
 [ext_resource type="Shader" path="res://Scenes/Objects/LayerShader.gdshader" id="1_bd7ku"]
 [ext_resource type="PackedScene" uid="uid://cm0f8mvflfs2f" path="res://Scenes/Objects/Spikes/Vines.tscn" id="3_8cxfj"]
+[ext_resource type="PackedScene" uid="uid://dmxct4o3nujh" path="res://Scenes/Characters/Birds/Dragonfly.tscn" id="4_tydfn"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_0anqs"]
 size = Vector2(375.51, 406)
@@ -143,9 +144,6 @@ position = Vector2(6192, -10)
 [node name="Vines25" parent="." instance=ExtResource("3_8cxfj")]
 position = Vector2(6272, -12)
 
-[node name="Vines26" parent="." instance=ExtResource("3_8cxfj")]
-position = Vector2(6352, -11)
-
 [node name="Vines27" parent="." instance=ExtResource("3_8cxfj")]
 position = Vector2(5865, -9)
 
@@ -166,3 +164,6 @@ position = Vector2(5617, -10)
 
 [node name="Vines33" parent="." instance=ExtResource("3_8cxfj")]
 position = Vector2(5697, -9)
+
+[node name="Dragonfly" parent="." instance=ExtResource("4_tydfn")]
+position = Vector2(8563, -110)

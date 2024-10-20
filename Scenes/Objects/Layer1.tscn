@@ -1,9 +1,10 @@
-[gd_scene load_steps=10 format=4 uid="uid://cwup8c5bfvvam"]
+[gd_scene load_steps=11 format=4 uid="uid://cwup8c5bfvvam"]
 
 [ext_resource type="Shader" path="res://Scenes/Objects/LayerShader.gdshader" id="1_63ity"]
 [ext_resource type="Texture2D" uid="uid://bl158qn5f0o22" path="res://Assets/Sprites/Floor.png" id="1_a7iet"]
 [ext_resource type="PackedScene" uid="uid://7dtgohouf6ns" path="res://Scenes/Objects/Spikes/SeaUrchin.tscn" id="4_awmrp"]
 [ext_resource type="PackedScene" uid="uid://2ep2yefvy4sx" path="res://Scenes/Objects/Collectables/Seashell.tscn" id="4_yl7vi"]
+[ext_resource type="PackedScene" uid="uid://b2tw4xdqm2f6v" path="res://Scenes/Characters/Birds/Fish.tscn" id="5_fvr4o"]
 
 [sub_resource type="GDScript" id="GDScript_dvaas"]
 script/source = "extends StaticBody2D
@@ -146,4 +147,7 @@ position = Vector2(6997, -13)
 position = Vector2(7102, -13)
 
 [node name="Seashell3" parent="." instance=ExtResource("4_yl7vi")]
-position = Vector2(2111, -132)
+position = Vector2(2055, -132)
+
+[node name="Fish" parent="." instance=ExtResource("5_fvr4o")]
+position = Vector2(9700, -168)

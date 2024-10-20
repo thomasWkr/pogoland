@@ -140,7 +140,6 @@ func drop_player() -> void:
 	layer2.reparent(parallax_layer2)
 	layer1.reparent(parallax_layer)
 
-
 func lift_player() -> void:
 	var layer1 = main_scene.get_child(3)
 	var layer2 = parallax_layer.get_child(0)

@@ -4,7 +4,7 @@
 [ext_resource type="Script" path="res://Scenes/Characters/Birds/bird.gd" id="1_xwnrs"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_543k8"]
-size = Vector2(24.85, 9.78572)
+size = Vector2(67.6949, 21.3214)
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_qbd8u"]
 
@@ -21,7 +21,7 @@ script = ExtResource("1_xwnrs")
 [node name="PogoDetectionArea" type="Area2D" parent="."]
 
 [node name="DetectionArea" type="CollisionShape2D" parent="PogoDetectionArea"]
-position = Vector2(15.5, -12)
+position = Vector2(24.5, -3.925)
 scale = Vector2(1.167, 1.4)
 shape = SubResource("RectangleShape2D_543k8")
 
@@ -39,4 +39,3 @@ scale = Vector2(3.5, 3.5)
 
 [connection signal="body_entered" from="PogoDetectionArea" to="." method="_on_pogo_detection_area_body_entered"]
 [connection signal="body_exited" from="PogoDetectionArea" to="." method="_on_pogo_detection_area_body_exited"]
-[connection signal="body_entered" from="DetectionaArea" to="." method="_on_detectiona_area_body_entered"]

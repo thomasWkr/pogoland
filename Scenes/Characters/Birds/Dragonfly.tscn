@@ -1,15 +1,45 @@
-[gd_scene load_steps=4 format=3 uid="uid://dmxct4o3nujh"]
+[gd_scene load_steps=10 format=3 uid="uid://dmxct4o3nujh"]
 
 [ext_resource type="PackedScene" uid="uid://b7vxrnjl3jj85" path="res://Scenes/Characters/Birds/Bird.tscn" id="1_6f2ig"]
+[ext_resource type="Shader" path="res://Scenes/Objects/LayerShader.gdshader" id="2_0sch3"]
+[ext_resource type="Texture2D" uid="uid://dll3k87ru3162" path="res://Assets/Sprites/ET, Dragonfly, seagol.png" id="3_p3o4e"]
 
-[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_44t8d"]
-load_path = "res://.godot/imported/ET, Dragonfly, seagol.png-06f4c86e6573831177679e43ab634ee3.ctex"
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_eol3j"]
+resource_local_to_scene = true
+shader = ExtResource("2_0sch3")
+shader_parameter/flash_color = Color(0.5, 0.5, 0.5, 1)
+shader_parameter/modifier = 0.0
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qiawu"]
+atlas = ExtResource("3_p3o4e")
+region = Rect2(96, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_22olq"]
+atlas = ExtResource("3_p3o4e")
+region = Rect2(128, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pcybs"]
+atlas = ExtResource("3_p3o4e")
+region = Rect2(160, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kn3oh"]
+atlas = ExtResource("3_p3o4e")
+region = Rect2(192, 0, 32, 32)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_krw34"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("CompressedTexture2D_44t8d")
+"texture": SubResource("AtlasTexture_qiawu")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_22olq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_pcybs")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_kn3oh")
 }],
 "loop": true,
 "name": &"default",
@@ -20,6 +50,7 @@ animations = [{
 
 [node name="AnimatedSprite2D" parent="." index="2"]
 texture_filter = 1
+material = SubResource("ShaderMaterial_eol3j")
 position = Vector2(25, 20)
 sprite_frames = SubResource("SpriteFrames_krw34")
 autoplay = "default"

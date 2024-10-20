@@ -106,16 +106,16 @@ position = Vector2(1517, -10)
 position = Vector2(1587, -9)
 
 [node name="UFO" parent="." instance=ExtResource("3_m4b6j")]
-position = Vector2(4736, -100)
+position = Vector2(4984, -100)
 
 [node name="UFO2" parent="." instance=ExtResource("3_m4b6j")]
-position = Vector2(4944, -171)
+position = Vector2(5200, -171)
 
 [node name="UFO3" parent="." instance=ExtResource("3_m4b6j")]
-position = Vector2(5168, -168)
+position = Vector2(5448, -168)
 
 [node name="UFO4" parent="." instance=ExtResource("3_m4b6j")]
-position = Vector2(5388, -243)
+position = Vector2(5684, -243)
 
 [node name="Artifact" parent="." instance=ExtResource("4_an443")]
 position = Vector2(4972, -380)
