@@ -15,7 +15,6 @@ extends CharacterBody2D
 @onready var pogo_emitter = %PogoSpread
 
 
-
 var initial_position = 0
 var collectable_count = 0
 var is_jumping = true
@@ -23,6 +22,7 @@ var can_pogo = false
 var got_hit = false
 var alive = true
 var bird = ''
+var can_tp = 1
 
 # Screenshake variables
 var shake_magnitude = 10  # Default shake intensity
@@ -30,7 +30,7 @@ var shake_duration = 0.1  # Default shake duration
 var shake_timer = 0.0     # Timer to track the shake duration
 var original_camera_position = Vector2()
 
-
+const DELTA = 10
 const SPEED = 300.0
 const JUMP_VELOCITY = -600.0
 const GRAVITY = 1100.0
@@ -103,11 +103,58 @@ func _physics_process(delta: float) -> void:
 
 		elif Input.is_action_just_pressed("Drop Player"):
 			switch_layer_player.play()
-			drop_player()
+			
+			if (can_tp):
+				can_tp = 0
+				set_collision_layer_value(1,0)
+				set_collision_mask_value(1,0)
+				if is_on_floor():
+					velocity.y = -100
+				is_jumping = true
+				
+				for i in DELTA:
+					animation.scale+= Vector2(0.3, 0.3)
+					await get_tree().create_timer(0.01).timeout
+					
+				drop_player()
+				
+				set_collision_layer_value(1,1)
+				set_collision_mask_value(1,1)
+				global_position.y-=100
+				
+				for i in DELTA:
+					animation.scale-= Vector2(0.3, 0.3)
+					await get_tree().create_timer(0.01).timeout
+				
+				await get_tree().create_timer(0.1).timeout
+				is_jumping = false
+				can_tp = 1
 
 		elif Input.is_action_just_pressed('Lift Player'):
 			switch_layer_player.play()
-			lift_player()
+			
+			if (can_tp):
+				can_tp = 0
+				
+				animation.animation = "jumping"
+				is_jumping = true
+				if is_on_floor():
+					velocity.y = -300
+					
+				for i in DELTA:
+					animation.scale-= Vector2(0.15, 0.15)
+					await get_tree().create_timer(0.01).timeout
+					
+				lift_player()
+		
+				for i in DELTA:
+					animation.scale+= Vector2(0.15, 0.15)
+					await get_tree().create_timer(0.01).timeout
+				
+				await get_tree().create_timer(0.1).timeout
+				if is_on_floor():
+					animation.animation = "default" 
+				can_tp = 1
 
 		velocity.x = SPEED
 
