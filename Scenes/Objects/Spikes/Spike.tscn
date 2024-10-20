@@ -1,6 +1,15 @@
-[gd_scene load_steps=2 format=3 uid="uid://cp2kndnmebkxw"]
+[gd_scene load_steps=4 format=3 uid="uid://cp2kndnmebkxw"]
 
 [ext_resource type="Script" path="res://Scenes/Objects/Spikes/spike.gd" id="1_a8ep8"]
+[ext_resource type="Shader" path="res://Scenes/Objects/LayerShader.gdshader" id="2_27rbj"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_vftdo"]
+resource_local_to_scene = true
+shader = ExtResource("2_27rbj")
+shader_parameter/flash_color = Color(0.5, 0.5, 0.5, 1)
+shader_parameter/modifier = 0.0
+shader_parameter/blink_color = Color(0.5, 0.5, 0.5, 1)
+shader_parameter/blink_modifier = 0.0
 
 [node name="Spike" type="Area2D"]
 collision_layer = 0
@@ -13,6 +22,7 @@ polygon = PackedVector2Array(-4, 2.98108, 2, 2.98108, -1, -4)
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture_filter = 1
+material = SubResource("ShaderMaterial_vftdo")
 scale = Vector2(3.5, 3.5)
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]

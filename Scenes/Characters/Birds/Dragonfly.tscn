@@ -1,6 +1,15 @@
-[gd_scene load_steps=4 format=3 uid="uid://dmxct4o3nujh"]
+[gd_scene load_steps=6 format=3 uid="uid://dmxct4o3nujh"]
 
 [ext_resource type="PackedScene" uid="uid://b7vxrnjl3jj85" path="res://Scenes/Characters/Birds/Bird.tscn" id="1_6f2ig"]
+[ext_resource type="Shader" path="res://Scenes/Objects/LayerShader.gdshader" id="2_gl1q6"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_6lnk5"]
+resource_local_to_scene = true
+shader = ExtResource("2_gl1q6")
+shader_parameter/flash_color = Color(0.5, 0.5, 0.5, 1)
+shader_parameter/modifier = 0.0
+shader_parameter/blink_color = Color(0.5, 0.5, 0.5, 1)
+shader_parameter/blink_modifier = 0.0
 
 [sub_resource type="CompressedTexture2D" id="CompressedTexture2D_44t8d"]
 load_path = "res://.godot/imported/ET, Dragonfly, seagol.png-06f4c86e6573831177679e43ab634ee3.ctex"
@@ -20,6 +29,7 @@ animations = [{
 
 [node name="AnimatedSprite2D" parent="." index="2"]
 texture_filter = 1
+material = SubResource("ShaderMaterial_6lnk5")
 position = Vector2(25, 20)
 sprite_frames = SubResource("SpriteFrames_krw34")
 autoplay = "default"

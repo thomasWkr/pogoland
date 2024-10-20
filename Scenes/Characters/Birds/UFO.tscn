@@ -9,6 +9,8 @@ resource_local_to_scene = true
 shader = ExtResource("2_8k1h4")
 shader_parameter/flash_color = Color(0.5, 0.5, 0.5, 1)
 shader_parameter/modifier = 0.0
+shader_parameter/blink_color = Color(0.5, 0.5, 0.5, 1)
+shader_parameter/blink_modifier = 0.0
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_k35ir"]
 atlas = ExtResource("2_5inc4")

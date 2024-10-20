@@ -1,11 +1,21 @@
-[gd_scene load_steps=3 format=3 uid="uid://oaibfjmsr8gr"]
+[gd_scene load_steps=5 format=3 uid="uid://oaibfjmsr8gr"]
 
 [ext_resource type="PackedScene" uid="uid://cp2kndnmebkxw" path="res://Scenes/Objects/Spikes/Spike.tscn" id="1_gsymd"]
-[ext_resource type="Texture2D" uid="uid://dkf0cei0deyxk" path="res://Assets/Sprites/Spikes.png" id="2_0pmli"]
+[ext_resource type="Texture2D" uid="uid://jtjb27rtb57g" path="res://Assets/Sprites/Spikes.png" id="2_0pmli"]
+[ext_resource type="Shader" path="res://Scenes/Objects/LayerShader.gdshader" id="2_5akk2"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_g342t"]
+resource_local_to_scene = true
+shader = ExtResource("2_5akk2")
+shader_parameter/flash_color = Color(0.5, 0.5, 0.5, 1)
+shader_parameter/modifier = 0.0
+shader_parameter/blink_color = Color(0.5, 0.5, 0.5, 1)
+shader_parameter/blink_modifier = 0.0
 
 [node name="Tentacles" instance=ExtResource("1_gsymd")]
 
 [node name="Sprite2D" parent="." index="1"]
+material = SubResource("ShaderMaterial_g342t")
 position = Vector2(0, -26)
 texture = ExtResource("2_0pmli")
 region_enabled = true

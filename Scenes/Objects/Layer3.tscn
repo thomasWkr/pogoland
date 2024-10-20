@@ -10,8 +10,10 @@ size = Vector2(376.95, 395)
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_7oj5m"]
 resource_local_to_scene = true
 shader = ExtResource("1_jt2nl")
-shader_parameter/flash_color = Color(0.5, 0.5, 0.5, 1)
+shader_parameter/flash_color = Color(0.709615, 0.567264, 0.0584713, 1)
 shader_parameter/modifier = 0.0
+shader_parameter/blink_color = Color(0.5, 0.5, 0.5, 1)
+shader_parameter/blink_modifier = 0.0
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_pl8ox"]
 texture = ExtResource("1_ft3d7")

@@ -1,7 +1,16 @@
-[gd_scene load_steps=8 format=3 uid="uid://di3xh7l3prsgw"]
+[gd_scene load_steps=10 format=3 uid="uid://di3xh7l3prsgw"]
 
 [ext_resource type="PackedScene" uid="uid://b7vxrnjl3jj85" path="res://Scenes/Characters/Birds/Bird.tscn" id="1_4q3r3"]
 [ext_resource type="Texture2D" uid="uid://dll3k87ru3162" path="res://Assets/Sprites/ET, Dragonfly, seagol.png" id="2_8c82k"]
+[ext_resource type="Shader" path="res://Scenes/Objects/LayerShader.gdshader" id="2_oc43n"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_sxcje"]
+resource_local_to_scene = true
+shader = ExtResource("2_oc43n")
+shader_parameter/flash_color = Color(0.5, 0.5, 0.5, 1)
+shader_parameter/modifier = 0.0
+shader_parameter/blink_color = Color(0.5, 0.5, 0.5, 1)
+shader_parameter/blink_modifier = 0.0
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_5xqiw"]
 atlas = ExtResource("2_8c82k")
@@ -43,6 +52,7 @@ animations = [{
 
 [node name="AnimatedSprite2D" parent="." index="2"]
 texture_filter = 1
+material = SubResource("ShaderMaterial_sxcje")
 position = Vector2(19, 15)
 sprite_frames = SubResource("SpriteFrames_yk486")
 autoplay = "default"

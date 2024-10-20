@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://cppssok227bx2"]
 
 [ext_resource type="PackedScene" uid="uid://cp2kndnmebkxw" path="res://Scenes/Objects/Spikes/Spike.tscn" id="1_pdhff"]
-[ext_resource type="Texture2D" uid="uid://dkf0cei0deyxk" path="res://Assets/Sprites/Spikes.png" id="2_jenmd"]
+[ext_resource type="Texture2D" uid="uid://jtjb27rtb57g" path="res://Assets/Sprites/Spikes.png" id="2_jenmd"]
 
 [node name="Meteor" instance=ExtResource("1_pdhff")]
 

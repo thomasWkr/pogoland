@@ -1,11 +1,21 @@
-[gd_scene load_steps=3 format=3 uid="uid://cd1qh7e6nmfip"]
+[gd_scene load_steps=5 format=3 uid="uid://cd1qh7e6nmfip"]
 
 [ext_resource type="PackedScene" uid="uid://cp2kndnmebkxw" path="res://Scenes/Objects/Spikes/Spike.tscn" id="1_a363d"]
-[ext_resource type="Texture2D" uid="uid://dkf0cei0deyxk" path="res://Assets/Sprites/Spikes.png" id="2_gegj0"]
+[ext_resource type="Shader" path="res://Scenes/Objects/LayerShader.gdshader" id="2_10a0a"]
+[ext_resource type="Texture2D" uid="uid://jtjb27rtb57g" path="res://Assets/Sprites/Spikes.png" id="2_gegj0"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_ja8iu"]
+resource_local_to_scene = true
+shader = ExtResource("2_10a0a")
+shader_parameter/flash_color = Color(0.5, 0.5, 0.5, 1)
+shader_parameter/modifier = 0.0
+shader_parameter/blink_color = Color(0.5, 0.5, 0.5, 1)
+shader_parameter/blink_modifier = 0.0
 
 [node name="Crab" instance=ExtResource("1_a363d")]
 
 [node name="Sprite2D" parent="." index="1"]
+material = SubResource("ShaderMaterial_ja8iu")
 position = Vector2(2, -26)
 texture = ExtResource("2_gegj0")
 region_enabled = true

@@ -27,6 +27,8 @@ resource_local_to_scene = true
 shader = ExtResource("1_63ity")
 shader_parameter/flash_color = Color(0.5, 0.5, 0.5, 1)
 shader_parameter/modifier = 0.0
+shader_parameter/blink_color = Color(0.5, 0.5, 0.5, 1)
+shader_parameter/blink_modifier = 0.0
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_5rerv"]
 texture = ExtResource("1_a7iet")

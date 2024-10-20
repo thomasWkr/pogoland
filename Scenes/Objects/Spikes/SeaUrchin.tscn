@@ -1,11 +1,21 @@
-[gd_scene load_steps=3 format=3 uid="uid://7dtgohouf6ns"]
+[gd_scene load_steps=5 format=3 uid="uid://7dtgohouf6ns"]
 
 [ext_resource type="PackedScene" uid="uid://cp2kndnmebkxw" path="res://Scenes/Objects/Spikes/Spike.tscn" id="1_bb38l"]
-[ext_resource type="Texture2D" uid="uid://dkf0cei0deyxk" path="res://Assets/Sprites/Spikes.png" id="2_ip40n"]
+[ext_resource type="Shader" path="res://Scenes/Objects/LayerShader.gdshader" id="2_a4eiq"]
+[ext_resource type="Texture2D" uid="uid://jtjb27rtb57g" path="res://Assets/Sprites/Spikes.png" id="2_ip40n"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_68tx1"]
+resource_local_to_scene = true
+shader = ExtResource("2_a4eiq")
+shader_parameter/flash_color = Color(0.5, 0.5, 0.5, 1)
+shader_parameter/modifier = 0.0
+shader_parameter/blink_color = Color(0.5, 0.5, 0.5, 1)
+shader_parameter/blink_modifier = 0.0
 
 [node name="SeaUrchin" instance=ExtResource("1_bb38l")]
 
 [node name="Sprite2D" parent="." index="1"]
+material = SubResource("ShaderMaterial_68tx1")
 position = Vector2(3, -26)
 texture = ExtResource("2_ip40n")
 region_enabled = true

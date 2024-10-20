@@ -1,7 +1,16 @@
-[gd_scene load_steps=8 format=3 uid="uid://b2tw4xdqm2f6v"]
+[gd_scene load_steps=10 format=3 uid="uid://b2tw4xdqm2f6v"]
 
 [ext_resource type="PackedScene" uid="uid://b7vxrnjl3jj85" path="res://Scenes/Characters/Birds/Bird.tscn" id="1_2gtmy"]
+[ext_resource type="Shader" path="res://Scenes/Objects/LayerShader.gdshader" id="2_anb2a"]
 [ext_resource type="Texture2D" uid="uid://b1a3udmcrwi3" path="res://Assets/Sprites/Fish.png" id="2_bfmch"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_s3eaq"]
+resource_local_to_scene = true
+shader = ExtResource("2_anb2a")
+shader_parameter/flash_color = Color(0.5, 0.5, 0.5, 1)
+shader_parameter/modifier = 0.0
+shader_parameter/blink_color = Color(0.5, 0.5, 0.5, 1)
+shader_parameter/blink_modifier = 0.0
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_ognjw"]
 atlas = ExtResource("2_bfmch")
@@ -43,6 +52,7 @@ animations = [{
 
 [node name="AnimatedSprite2D" parent="." index="2"]
 texture_filter = 1
+material = SubResource("ShaderMaterial_s3eaq")
 position = Vector2(21, 22)
 sprite_frames = SubResource("SpriteFrames_euf2c")
 autoplay = "default"
