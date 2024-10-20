@@ -22,14 +22,14 @@ func _physics_process(_delta: float) -> void:
 	
 func _on_pogo_detection_area_body_entered(body: Node2D) -> void:
 	if(body.name == "Pc"):
-		body.can_pogo = true
-		body.bird = self
-	pass # Replace with function body.
+		var main_layer = body.get_parent().get_child(3)
+		if self.get_parent().name == main_layer.name:
+			body.can_pogo = true
+			body.bird = self
 
 func _on_pogo_detection_area_body_exited(body: Node2D) -> void:
 	if(body.name == "Pc"):
 		body.can_pogo = false
-	pass # Replace with function body.
 
 func _on_detectiona_area_body_entered(body: Node2D) -> void:
 	if(body.name == "Pc"):
