@@ -7,7 +7,7 @@ func collect(body) -> void:
 	if body.name == 'Pc':
 		var main_layer = body.get_parent().get_child(3)
 		if self.get_parent().name == main_layer.name:
-			body.collectable_count += 1
+			body.collect()
 			print(body.collectable_count)
 			self.queue_free() 
 

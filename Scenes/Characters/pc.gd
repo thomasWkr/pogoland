@@ -44,7 +44,7 @@ const DRAGONFLY_AUDIO = preload("res://Assets/Audio/dragonfly.ogg")
 const SEAGULL_AUDIO = preload("res://Assets/Audio/seagull.ogg")
 const UFO_AUDIO = preload("res://Assets/Audio/ufo.ogg")
 const FAIRY_AUDIO = preload("res://Assets/Audio/fairy.ogg")
-
+const COIN_AUDIO = preload("res://Assets/Audio/coin.ogg")
 
 # Function to start the screenshake effect with custom intensity and duration
 func start_screenshake(intensity: float, duration: float) -> void:
@@ -185,6 +185,11 @@ func type_of_bird(bird_name):
 		play_sfx(UFO_AUDIO, 0.0)
 	elif(bird.name.contains("Fairy")):
 		play_sfx(FAIRY_AUDIO, 3.0)
+
+func collect(): 
+	play_sfx(COIN_AUDIO, 0.0)
+	collectable_count += 1
+	print(collectable_count)
 
 func _on_theme_finished() -> void:
 	theme_player.play(0.0)

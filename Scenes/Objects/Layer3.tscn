@@ -1,8 +1,9 @@
-[gd_scene load_steps=8 format=4 uid="uid://mbv8mcxko8r"]
+[gd_scene load_steps=9 format=4 uid="uid://mbv8mcxko8r"]
 
 [ext_resource type="Texture2D" uid="uid://bl158qn5f0o22" path="res://Assets/Sprites/Floor.png" id="1_ft3d7"]
 [ext_resource type="Shader" path="res://Scenes/Objects/LayerShader.gdshader" id="1_jt2nl"]
 [ext_resource type="PackedScene" uid="uid://cd1qh7e6nmfip" path="res://Scenes/Objects/Spikes/Crab.tscn" id="3_5dsi7"]
+[ext_resource type="PackedScene" uid="uid://di3xh7l3prsgw" path="res://Scenes/Characters/Birds/Seagull.tscn" id="4_o14sv"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_pjyye"]
 size = Vector2(376.95, 395)
@@ -103,3 +104,15 @@ position = Vector2(2222, 15)
 
 [node name="Crab8" parent="." instance=ExtResource("3_5dsi7")]
 position = Vector2(2293, 15)
+
+[node name="Crab14" parent="." instance=ExtResource("3_5dsi7")]
+position = Vector2(6056, 9)
+
+[node name="Crab15" parent="." instance=ExtResource("3_5dsi7")]
+position = Vector2(6129, 9)
+
+[node name="Crab16" parent="." instance=ExtResource("3_5dsi7")]
+position = Vector2(6201, 7)
+
+[node name="Seagull" parent="." instance=ExtResource("4_o14sv")]
+position = Vector2(7031, -93)

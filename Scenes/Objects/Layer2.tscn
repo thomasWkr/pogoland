@@ -100,3 +100,69 @@ position = Vector2(1695, -9)
 
 [node name="Vines11" parent="." instance=ExtResource("3_8cxfj")]
 position = Vector2(1775, -8)
+
+[node name="Vines12" parent="." instance=ExtResource("3_8cxfj")]
+position = Vector2(2190, -10)
+
+[node name="Vines13" parent="." instance=ExtResource("3_8cxfj")]
+position = Vector2(2270, -9)
+
+[node name="Vines14" parent="." instance=ExtResource("3_8cxfj")]
+position = Vector2(2350, -11)
+
+[node name="Vines15" parent="." instance=ExtResource("3_8cxfj")]
+position = Vector2(2430, -10)
+
+[node name="Vines16" parent="." instance=ExtResource("3_8cxfj")]
+position = Vector2(1943, -8)
+
+[node name="Vines17" parent="." instance=ExtResource("3_8cxfj")]
+position = Vector2(2023, -10)
+
+[node name="Vines18" parent="." instance=ExtResource("3_8cxfj")]
+position = Vector2(2103, -9)
+
+[node name="Vines19" parent="." instance=ExtResource("3_8cxfj")]
+position = Vector2(1862, -11)
+
+[node name="Vines20" parent="." instance=ExtResource("3_8cxfj")]
+position = Vector2(1615, -7)
+
+[node name="Vines21" parent="." instance=ExtResource("3_8cxfj")]
+position = Vector2(1695, -9)
+
+[node name="Vines22" parent="." instance=ExtResource("3_8cxfj")]
+position = Vector2(1775, -8)
+
+[node name="Vines23" parent="." instance=ExtResource("3_8cxfj")]
+position = Vector2(6112, -11)
+
+[node name="Vines24" parent="." instance=ExtResource("3_8cxfj")]
+position = Vector2(6192, -10)
+
+[node name="Vines25" parent="." instance=ExtResource("3_8cxfj")]
+position = Vector2(6272, -12)
+
+[node name="Vines26" parent="." instance=ExtResource("3_8cxfj")]
+position = Vector2(6352, -11)
+
+[node name="Vines27" parent="." instance=ExtResource("3_8cxfj")]
+position = Vector2(5865, -9)
+
+[node name="Vines28" parent="." instance=ExtResource("3_8cxfj")]
+position = Vector2(5945, -11)
+
+[node name="Vines29" parent="." instance=ExtResource("3_8cxfj")]
+position = Vector2(6025, -10)
+
+[node name="Vines30" parent="." instance=ExtResource("3_8cxfj")]
+position = Vector2(5784, -12)
+
+[node name="Vines31" parent="." instance=ExtResource("3_8cxfj")]
+position = Vector2(5537, -8)
+
+[node name="Vines32" parent="." instance=ExtResource("3_8cxfj")]
+position = Vector2(5617, -10)
+
+[node name="Vines33" parent="." instance=ExtResource("3_8cxfj")]
+position = Vector2(5697, -9)

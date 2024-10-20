@@ -91,8 +91,59 @@ position = Vector2(2103, -10)
 [node name="SeaUrchin3" parent="." instance=ExtResource("4_awmrp")]
 position = Vector2(2208, -10)
 
+[node name="SeaUrchin4" parent="." instance=ExtResource("4_awmrp")]
+position = Vector2(5284, -13)
+
+[node name="SeaUrchin5" parent="." instance=ExtResource("4_awmrp")]
+position = Vector2(5387, -13)
+
+[node name="SeaUrchin6" parent="." instance=ExtResource("4_awmrp")]
+position = Vector2(5492, -13)
+
+[node name="SeaUrchin7" parent="." instance=ExtResource("4_awmrp")]
+position = Vector2(5608, -13)
+
+[node name="SeaUrchin8" parent="." instance=ExtResource("4_awmrp")]
+position = Vector2(5711, -13)
+
+[node name="SeaUrchin9" parent="." instance=ExtResource("4_awmrp")]
+position = Vector2(5816, -13)
+
+[node name="SeaUrchin10" parent="." instance=ExtResource("4_awmrp")]
+position = Vector2(5929, -13)
+
+[node name="SeaUrchin11" parent="." instance=ExtResource("4_awmrp")]
+position = Vector2(6032, -13)
+
+[node name="SeaUrchin12" parent="." instance=ExtResource("4_awmrp")]
+position = Vector2(6137, -13)
+
+[node name="SeaUrchin13" parent="." instance=ExtResource("4_awmrp")]
+position = Vector2(6249, -13)
+
+[node name="SeaUrchin14" parent="." instance=ExtResource("4_awmrp")]
+position = Vector2(6352, -13)
+
+[node name="SeaUrchin15" parent="." instance=ExtResource("4_awmrp")]
+position = Vector2(6457, -13)
+
+[node name="SeaUrchin16" parent="." instance=ExtResource("4_awmrp")]
+position = Vector2(6573, -13)
+
+[node name="SeaUrchin17" parent="." instance=ExtResource("4_awmrp")]
+position = Vector2(6676, -13)
+
+[node name="SeaUrchin18" parent="." instance=ExtResource("4_awmrp")]
+position = Vector2(6781, -13)
+
+[node name="SeaUrchin19" parent="." instance=ExtResource("4_awmrp")]
+position = Vector2(6894, -13)
+
+[node name="SeaUrchin20" parent="." instance=ExtResource("4_awmrp")]
+position = Vector2(6997, -13)
+
+[node name="SeaUrchin21" parent="." instance=ExtResource("4_awmrp")]
+position = Vector2(7102, -13)
+
 [node name="Seashell3" parent="." instance=ExtResource("4_yl7vi")]
 position = Vector2(2111, -132)
-
-[node name="Seashell2" parent="." instance=ExtResource("4_yl7vi")]
-position = Vector2(2565, -101)

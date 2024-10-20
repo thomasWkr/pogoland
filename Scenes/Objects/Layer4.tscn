@@ -118,4 +118,61 @@ position = Vector2(5168, -168)
 position = Vector2(5388, -243)
 
 [node name="Artifact" parent="." instance=ExtResource("4_an443")]
-position = Vector2(5276, -380)
+position = Vector2(4972, -380)
+
+[node name="Meteor21" parent="." instance=ExtResource("3_rk2rn")]
+position = Vector2(5424, -10)
+
+[node name="Meteor22" parent="." instance=ExtResource("3_rk2rn")]
+position = Vector2(5495, -11)
+
+[node name="Meteor23" parent="." instance=ExtResource("3_rk2rn")]
+position = Vector2(5565, -10)
+
+[node name="Meteor24" parent="." instance=ExtResource("3_rk2rn")]
+position = Vector2(5639, -13)
+
+[node name="Meteor25" parent="." instance=ExtResource("3_rk2rn")]
+position = Vector2(5710, -14)
+
+[node name="Meteor26" parent="." instance=ExtResource("3_rk2rn")]
+position = Vector2(5780, -13)
+
+[node name="Meteor27" parent="." instance=ExtResource("3_rk2rn")]
+position = Vector2(5849, -11)
+
+[node name="Meteor28" parent="." instance=ExtResource("3_rk2rn")]
+position = Vector2(5920, -12)
+
+[node name="Meteor29" parent="." instance=ExtResource("3_rk2rn")]
+position = Vector2(5990, -11)
+
+[node name="Meteor30" parent="." instance=ExtResource("3_rk2rn")]
+position = Vector2(6060, -13)
+
+[node name="Meteor31" parent="." instance=ExtResource("3_rk2rn")]
+position = Vector2(6131, -14)
+
+[node name="Meteor32" parent="." instance=ExtResource("3_rk2rn")]
+position = Vector2(6201, -13)
+
+[node name="Meteor33" parent="." instance=ExtResource("3_rk2rn")]
+position = Vector2(6275, -16)
+
+[node name="Meteor34" parent="." instance=ExtResource("3_rk2rn")]
+position = Vector2(6346, -17)
+
+[node name="Meteor35" parent="." instance=ExtResource("3_rk2rn")]
+position = Vector2(6416, -16)
+
+[node name="Meteor36" parent="." instance=ExtResource("3_rk2rn")]
+position = Vector2(6485, -14)
+
+[node name="Meteor37" parent="." instance=ExtResource("3_rk2rn")]
+position = Vector2(6556, -15)
+
+[node name="Meteor38" parent="." instance=ExtResource("3_rk2rn")]
+position = Vector2(6626, -14)
+
+[node name="Artifact2" parent="." instance=ExtResource("4_an443")]
+position = Vector2(9020, -380)
