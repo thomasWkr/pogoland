@@ -10,9 +10,11 @@ extends CharacterBody2D
 @onready var sfx_player = %SFXPlayer
 @onready var switch_layer_player = %SwitchLayerPlayer
 @onready var death_player = %DeathPlayer
+@onready var animation = %AnimatedSprite2D
 
 
 var initial_position = 0
+var is_jumping = false
 var can_pogo = false
 var got_hit = false
 var alive = true
@@ -25,7 +27,7 @@ var shake_timer = 0.0     # Timer to track the shake duration
 var original_camera_position = Vector2()
 
 
-const SPEED = 300.0
+const SPEED = 0.0
 const JUMP_VELOCITY = -600.0
 const GRAVITY = 1100.0
 const ASCEND_MULTIPLIER = 1.6  # Controls the ascend speed (higher = faster)
@@ -59,6 +61,9 @@ func _process(delta: float) -> void:
 func _init() -> void:
 	initial_position = global_position
 
+func _ready() -> void:
+	animation.play()
+
 func _physics_process(delta: float) -> void:
 	if(alive):
 		if(got_hit or global_position.y >= 500):
@@ -71,9 +76,16 @@ func _physics_process(delta: float) -> void:
 				velocity.y += GRAVITY * delta * ASCEND_MULTIPLIER
 			else:  # Descending
 				velocity.y += GRAVITY * delta * DESCEND_MULTIPLIER
+		else:
+			if(is_jumping):
+				animation.animation = "default"
+				animation.play()
+				is_jumping = false
 
 		if Input.is_action_just_pressed("jump"):
 			if(is_on_floor()):
+				is_jumping = true
+				animation.animation = "jumping"
 				play_sfx(JUMP_AUDIO, -10.0)
 				velocity.y = JUMP_VELOCITY
 				#start_screenshake()  # Start the screenshake when jumping
@@ -172,7 +184,7 @@ func type_of_bird(bird_name):
 		play_sfx(FAIRY_AUDIO, 0.0)
 
 func _on_theme_finished() -> void:
-	theme_player.play(1.33)
+	theme_player.play(1.09)
 
 func _on_death_player_finished() -> void:
 	await get_tree().create_timer(0.3).timeout

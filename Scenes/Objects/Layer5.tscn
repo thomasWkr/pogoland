@@ -5,7 +5,7 @@
 [ext_resource type="PackedScene" uid="uid://b7vxrnjl3jj85" path="res://Scenes/Characters/Bird.tscn" id="3_3dvn1"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_omyqs"]
-size = Vector2(4000, 8)
+size = Vector2(4000, 339)
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_7ctvn"]
 texture = ExtResource("2_knv0a")
@@ -48,11 +48,11 @@ sources/0 = SubResource("TileSetAtlasSource_7ctvn")
 [node name="Layer5" type="StaticBody2D"]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(2000, 36)
+position = Vector2(2000, 210.5)
 shape = SubResource("RectangleShape2D_omyqs")
 
 [node name="Spike" parent="." instance=ExtResource("1_a8tjr")]
-position = Vector2(416, -191)
+position = Vector2(902, -1)
 color = "672352"
 
 [node name="TileMapLayer" type="TileMapLayer" parent="."]

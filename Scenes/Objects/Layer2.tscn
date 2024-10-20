@@ -5,7 +5,7 @@
 [ext_resource type="PackedScene" uid="uid://b7vxrnjl3jj85" path="res://Scenes/Characters/Bird.tscn" id="3_hqttb"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_0anqs"]
-size = Vector2(40.32, 30)
+size = Vector2(40.32, 345)
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_slxi6"]
 texture = ExtResource("1_ohxwb")
@@ -50,7 +50,7 @@ position = Vector2(-20024, -222)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 texture_filter = 1
-position = Vector2(2018, 25)
+position = Vector2(2018, 204.5)
 scale = Vector2(100, 1)
 shape = SubResource("RectangleShape2D_0anqs")
 
