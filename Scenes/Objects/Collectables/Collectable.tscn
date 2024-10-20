@@ -9,7 +9,7 @@
 script = ExtResource("1_vjgws")
 
 [node name="CollectDetectionArea" type="CollisionShape2D" parent="."]
-scale = Vector2(3.5, 3.5)
+scale = Vector2(5, 5)
 shape = SubResource("CircleShape2D_xk6hp")
 debug_color = Color(0.792157, 1, 0.0313726, 0.419608)
 

@@ -4,6 +4,6 @@
 
 [node name="Scarab" instance=ExtResource("1_uchro")]
 
-[node name="Sprite2D" parent="." index="2"]
+[node name="Sprite2D" parent="." index="1"]
 region_enabled = true
 region_rect = Rect2(0, 96, 32, 32)

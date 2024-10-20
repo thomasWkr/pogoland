@@ -18,7 +18,7 @@ extends CharacterBody2D
 
 var initial_position = 0
 var collectable_count = 0
-var is_jumping = false
+var is_jumping = true
 var can_pogo = false
 var got_hit = false
 var alive = true

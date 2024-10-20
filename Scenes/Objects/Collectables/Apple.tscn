@@ -4,6 +4,6 @@
 
 [node name="Apple" instance=ExtResource("1_xpjlb")]
 
-[node name="Sprite2D" parent="." index="2"]
+[node name="Sprite2D" parent="." index="1"]
 region_enabled = true
 region_rect = Rect2(96, 64, 32, 32)

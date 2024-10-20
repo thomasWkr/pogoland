@@ -4,6 +4,6 @@
 
 [node name="Artifact" instance=ExtResource("1_mi773")]
 
-[node name="Sprite2D" parent="." index="2"]
+[node name="Sprite2D" parent="." index="1"]
 region_enabled = true
 region_rect = Rect2(64, 64, 32, 32)
