@@ -143,7 +143,6 @@ texture_filter = 1
 position = Vector2(14, 8)
 scale = Vector2(3.5, 3.5)
 sprite_frames = SubResource("SpriteFrames_0to68")
-animation = &"jumping"
 
 [node name="BLOODSPREAD" type="CPUParticles2D" parent="."]
 unique_name_in_owner = true
