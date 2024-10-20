@@ -2,7 +2,7 @@
 
 [ext_resource type="Texture2D" uid="uid://bacewqvl1rsgm" path="res://Assets/Sprites/Floor.png" id="1_ohxwb"]
 [ext_resource type="Shader" path="res://Scenes/Objects/LayersShader.gdshader" id="2_arhm3"]
-[ext_resource type="PackedScene" uid="uid://cp2kndnmebkxw" path="res://Scenes/Objects/Spike.tscn" id="2_soq7l"]
+[ext_resource type="PackedScene" path="res://Scenes/Objects/Spike.tscn" id="2_soq7l"]
 [ext_resource type="PackedScene" uid="uid://dmxct4o3nujh" path="res://Scenes/Characters/Birds/Dragonfly.tscn" id="3_e1qb4"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_0anqs"]

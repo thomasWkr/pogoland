@@ -215,11 +215,11 @@ func drop_player() -> void:
 	if (can_tp):
 		can_tp = 0
 		
-    changing_layer = true
-    #down_layer()
-    #flash()
-    #unflash(current_layer)
-    
+	changing_layer = true
+	#down_layer()
+	#flash()
+	#unflash(current_layer)
+	
 		var layer1 = main_scene.get_child(3)
 		var layer2 = parallax_layer.get_child(0)
 		var layer3 = parallax_layer2.get_child(0)
@@ -276,19 +276,19 @@ func lift_player() -> void:
 	if can_tp:
 		can_tp=0
 		changing_layer = true
-    #up_layer()
-    #flash()
-    #unflash(current_layer)
-    var layer1 = main_scene.get_child(3)
-    var layer2 = parallax_layer.get_child(0)
-    var layer3 = parallax_layer2.get_child(0)
-    var layer4 = parallax_layer3.get_child(0)
-    var layer5 = parallax_layer4.get_child(0)
+	#up_layer()
+	#flash()
+	#unflash(current_layer)
+	var layer1 = main_scene.get_child(3)
+	var layer2 = parallax_layer.get_child(0)
+	var layer3 = parallax_layer2.get_child(0)
+	var layer4 = parallax_layer3.get_child(0)
+	var layer5 = parallax_layer4.get_child(0)
 
-    var buffer_position_4 = layer4.global_position
-    var buffer_scale_4 = layer4.scale
+	var buffer_position_4 = layer4.global_position
+	var buffer_scale_4 = layer4.scale
 
-    await get_tree().create_timer(0.3).timeout
+	await get_tree().create_timer(0.3).timeout
 		
 		if is_on_floor():
 			velocity.y = -300
