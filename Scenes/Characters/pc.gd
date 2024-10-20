@@ -44,6 +44,95 @@ const SEAGULL_AUDIO = preload("res://Assets/Audio/seagull.ogg")
 const UFO_AUDIO = preload("res://Assets/Audio/ufo.ogg")
 const FAIRY_AUDIO = preload("res://Assets/Audio/fairy.ogg")
 
+@onready var tilemap_layer1 = get_parent().get_child(3).get_child(1)
+@onready var tilemap_layer2 = get_parent().get_child(1).get_child(0).get_child(0).get_child(2)
+@onready var tilemap_layer3 = get_parent().get_child(1).get_child(1).get_child(0).get_child(2)
+@onready var tilemap_layer4 = get_parent().get_child(1).get_child(2).get_child(0).get_child(2)
+@onready var tilemap_layer5 = get_parent().get_child(2).get_child(0).get_child(0).get_child(2)
+
+var current_layer = 1
+var changing_layer = false
+
+func up_layer():
+	if current_layer == 5:
+		current_layer= 1
+	else: 
+		current_layer+=1
+
+func down_layer():
+	if current_layer == 1:
+		current_layer= 5
+	else: 
+		current_layer-=1
+
+
+#shader function
+func flash():
+	print(current_layer)
+	tilemap_layer1.material.set_shader_parameter("modifier", 0.5)
+	tilemap_layer2.material.set_shader_parameter("modifier", 0.5)
+	tilemap_layer3.material.set_shader_parameter("modifier", 0.65)
+	tilemap_layer4.material.set_shader_parameter("modifier", 0.8)
+	tilemap_layer5.material.set_shader_parameter("modifier", 0.5)
+
+	
+func unflash(current_layer):
+	match current_layer:
+		1:
+			tilemap_layer1.material.set_shader_parameter("modifier", 0)
+			tilemap_layer2.material.set_shader_parameter("modifier", 0.5)
+			tilemap_layer3.material.set_shader_parameter("modifier", 0.65)
+			tilemap_layer4.material.set_shader_parameter("modifier", 0.8)
+			tilemap_layer5.material.set_shader_parameter("modifier", 0.5)
+		2:
+			tilemap_layer1.material.set_shader_parameter("modifier", 0.5)
+			tilemap_layer2.material.set_shader_parameter("modifier", 0)
+			tilemap_layer3.material.set_shader_parameter("modifier", 0.5)
+			tilemap_layer4.material.set_shader_parameter("modifier", 0.65)
+			tilemap_layer5.material.set_shader_parameter("modifier", 0.8)
+		3:
+			tilemap_layer1.material.set_shader_parameter("modifier", 0.8)
+			tilemap_layer2.material.set_shader_parameter("modifier", 0.5)
+			tilemap_layer3.material.set_shader_parameter("modifier", 0)
+			tilemap_layer4.material.set_shader_parameter("modifier", 0.5)
+			tilemap_layer5.material.set_shader_parameter("modifier", 0.65)
+		4:
+			tilemap_layer1.material.set_shader_parameter("modifier", 0.65)
+			tilemap_layer2.material.set_shader_parameter("modifier", 0.8)
+			tilemap_layer3.material.set_shader_parameter("modifier", 0.5)
+			tilemap_layer4.material.set_shader_parameter("modifier", 0)
+			tilemap_layer5.material.set_shader_parameter("modifier", 0.5)
+		5:
+			tilemap_layer1.material.set_shader_parameter("modifier", 0.5)
+			tilemap_layer2.material.set_shader_parameter("modifier", 0.65)
+			tilemap_layer3.material.set_shader_parameter("modifier", 0.8)
+			tilemap_layer4.material.set_shader_parameter("modifier", 0.5)
+			tilemap_layer5.material.set_shader_parameter("modifier", 0)
+
+# Variables to control the shader modifier
+var modifier := 0.0
+var modifier_speed := 3.0  # Speed of the modifier change
+var increasing := true  # Whether the modifier is increasing
+
+# Reference to the material (ensure you assign it in the inspector or via code)
+func shader_trans(delta: float) -> void:
+	if increasing:
+		modifier += modifier_speed * delta  # Increase the modifier
+		if modifier >= 1.0:
+			modifier = 1.0
+			increasing = false  # Start decreasing
+	else:
+		modifier -= modifier_speed * delta /1.5 # Decrease the modifier
+		if modifier <= 0.0:
+			modifier = 0.0
+			increasing = true  # Start increasing
+			changing_layer = false
+	# Apply the updated modifier to the shader
+	tilemap_layer1.material.set_shader_parameter("modifier", modifier)
+	tilemap_layer2.material.set_shader_parameter("modifier", modifier)
+	tilemap_layer3.material.set_shader_parameter("modifier", modifier)
+	tilemap_layer4.material.set_shader_parameter("modifier", modifier)
+	tilemap_layer5.material.set_shader_parameter("modifier", modifier)
 
 # Function to start the screenshake effect with custom intensity and duration
 func start_screenshake(intensity: float, duration: float) -> void:
@@ -59,12 +148,22 @@ func _process(delta: float) -> void:
 		
 		if shake_timer <= 0:
 			camera.position = original_camera_position  # Reset camera position after shaking
+	if changing_layer:
+		shader_trans(delta)
 
-func _init() -> void:
+func _iwadanit() -> void:
 	initial_position = global_position
 
 func _ready() -> void:
 	animation.play()
+	#flash()
+	#  unflash(current_layer)
+	# Imprimir o nome do nó que foi acessado
+	print(tilemap_layer1.name)
+	print(tilemap_layer2.name)
+	print(tilemap_layer3.name)
+	print(tilemap_layer4.name)
+	print(tilemap_layer5.name)
 
 func _physics_process(delta: float) -> void:
 	if(alive):
@@ -116,6 +215,11 @@ func drop_player() -> void:
 	if (can_tp):
 		can_tp = 0
 		
+    changing_layer = true
+    #down_layer()
+    #flash()
+    #unflash(current_layer)
+    
 		var layer1 = main_scene.get_child(3)
 		var layer2 = parallax_layer.get_child(0)
 		var layer3 = parallax_layer2.get_child(0)
@@ -123,6 +227,8 @@ func drop_player() -> void:
 		var layer5 = parallax_layer4.get_child(0)
 		var animation = get_child(6)
 		
+	  await get_tree().create_timer(0.3).timeout
+  
 		if is_on_floor():
 			velocity.y = -100
 		set_collision_layer_value(1,0)
@@ -169,11 +275,20 @@ func drop_player() -> void:
 func lift_player() -> void:
 	if can_tp:
 		can_tp=0
-		var layer1 = main_scene.get_child(3)
-		var layer2 = parallax_layer.get_child(0)
-		var layer3 = parallax_layer2.get_child(0)
-		var layer4 = parallax_layer3.get_child(0)
-		var layer5 = parallax_layer4.get_child(0)
+		changing_layer = true
+    #up_layer()
+    #flash()
+    #unflash(current_layer)
+    var layer1 = main_scene.get_child(3)
+    var layer2 = parallax_layer.get_child(0)
+    var layer3 = parallax_layer2.get_child(0)
+    var layer4 = parallax_layer3.get_child(0)
+    var layer5 = parallax_layer4.get_child(0)
+
+    var buffer_position_4 = layer4.global_position
+    var buffer_scale_4 = layer4.scale
+
+    await get_tree().create_timer(0.3).timeout
 		
 		if is_on_floor():
 			velocity.y = -300
@@ -185,9 +300,6 @@ func lift_player() -> void:
 		for i in DELTA:
 			animation.scale-= Vector2(0.1, 0.1)
 			await get_tree().create_timer(0.01).timeout
-			
-		var buffer_position_4 = layer4.global_position
-		var buffer_scale_4 = layer4.scale
 		
 		layer4.global_position = layer3.global_position
 		layer4.scale = layer3.scale
