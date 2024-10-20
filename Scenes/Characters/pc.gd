@@ -27,7 +27,7 @@ var shake_timer = 0.0     # Timer to track the shake duration
 var original_camera_position = Vector2()
 
 
-const SPEED = 300.0
+const SPEED = 0.0
 const JUMP_VELOCITY = -600.0
 const GRAVITY = 1100.0
 const ASCEND_MULTIPLIER = 1.6  # Controls the ascend speed (higher = faster)
@@ -184,7 +184,7 @@ func type_of_bird(bird_name):
 		play_sfx(FAIRY_AUDIO, 0.0)
 
 func _on_theme_finished() -> void:
-	theme_player.play(1.33)
+	theme_player.play(1.09)
 
 func _on_death_player_finished() -> void:
 	await get_tree().create_timer(0.3).timeout
