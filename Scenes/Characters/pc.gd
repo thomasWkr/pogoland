@@ -14,8 +14,6 @@ extends CharacterBody2D
 @onready var particle_emitter = %BLOODSPREAD
 @onready var pogo_emitter = %PogoSpread
 
-
-
 var initial_position = 0
 var collectable_count = 0
 var is_jumping = false
@@ -23,6 +21,7 @@ var can_pogo = false
 var got_hit = false
 var alive = true
 var bird = ''
+var can_tp = 1
 
 # Screenshake variables
 var shake_magnitude = 10  # Default shake intensity
@@ -30,10 +29,10 @@ var shake_duration = 0.1  # Default shake duration
 var shake_timer = 0.0     # Timer to track the shake duration
 var original_camera_position = Vector2()
 
-
-const SPEED = 300.0
+const DELTA = 10
+var SPEED = 300.0
 const JUMP_VELOCITY = -600.0
-const GRAVITY = 1100.0
+var GRAVITY = 1100.0
 const ASCEND_MULTIPLIER = 1.6  # Controls the ascend speed (higher = faster)
 const DESCEND_MULTIPLIER = 1 # Controls the descend speed (lower = slower)
 const PARALLAXES_TOTAL = 4
@@ -114,60 +113,111 @@ func _physics_process(delta: float) -> void:
 		move_and_slide()
 
 func drop_player() -> void:
-	var layer1 = main_scene.get_child(3)
-	var layer2 = parallax_layer.get_child(0)
-	var layer3 = parallax_layer2.get_child(0)
-	var layer4 = parallax_layer3.get_child(0)
-	var layer5 = parallax_layer4.get_child(0)
-	
-	var buffer_position_1 = layer1.global_position
-	
-	layer1.global_position = layer2.global_position
-	layer1.scale = layer2.scale
-	layer2.global_position = layer3.global_position
-	layer2.scale = layer3.scale
-	layer3.global_position = layer4.global_position
-	layer3.scale = layer4.scale
-	layer4.global_position = layer5.global_position
-	layer4.scale = layer5.scale
-	
-	layer5.global_position = buffer_position_1
-	layer5.scale = Vector2(1,1)
-	
-	layer5.reparent(main_scene)
-	layer4.reparent(parallax_layer4)
-	layer3.reparent(parallax_layer3)
-	layer2.reparent(parallax_layer2)
-	layer1.reparent(parallax_layer)
-
+	if (can_tp):
+		can_tp = 0
+		
+		var layer1 = main_scene.get_child(3)
+		var layer2 = parallax_layer.get_child(0)
+		var layer3 = parallax_layer2.get_child(0)
+		var layer4 = parallax_layer3.get_child(0)
+		var layer5 = parallax_layer4.get_child(0)
+		var animation = get_child(6)
+		
+		if is_on_floor():
+			velocity.y = -100
+		set_collision_layer_value(1,0)
+		set_collision_mask_value(1,0)
+			
+		animation.animation = "jumping"
+		is_jumping = true
+		for i in DELTA:
+			animation.scale+= Vector2(0.3, 0.3)
+			await get_tree().create_timer(0.01).timeout
+		
+		var buffer_position_1 = layer1.global_position
+		
+		layer1.global_position = layer2.global_position
+		layer1.scale = layer2.scale
+		layer2.global_position = layer3.global_position
+		layer2.scale = layer3.scale
+		layer3.global_position = layer4.global_position
+		layer3.scale = layer4.scale
+		layer4.global_position = layer5.global_position
+		layer4.scale = layer5.scale
+		
+		layer5.global_position = buffer_position_1
+		layer5.scale = Vector2(1,1)
+		
+		layer5.reparent(main_scene)
+		layer4.reparent(parallax_layer4)
+		layer3.reparent(parallax_layer3)
+		layer2.reparent(parallax_layer2)
+		layer1.reparent(parallax_layer)
+		
+		set_collision_layer_value(1,1)
+		set_collision_mask_value(1,1)
+		global_position.y-=100
+		
+		for i in DELTA:
+			animation.scale-= Vector2(0.3, 0.3)
+			await get_tree().create_timer(0.01).timeout
+		
+		if is_on_floor():
+			animation.animation = "default" 
+		can_tp = 1
 
 func lift_player() -> void:
-	var layer1 = main_scene.get_child(3)
-	var layer2 = parallax_layer.get_child(0)
-	var layer3 = parallax_layer2.get_child(0)
-	var layer4 = parallax_layer3.get_child(0)
-	var layer5 = parallax_layer4.get_child(0)
-	
-	var buffer_position_4 = layer4.global_position
-	var buffer_scale_4 = layer4.scale
-	
-	layer4.global_position = layer3.global_position
-	layer4.scale = layer3.scale
-	layer3.global_position = layer2.global_position
-	layer3.scale = layer2.scale
-	layer2.global_position = layer1.global_position
-	layer2.scale = layer1.scale
-	layer1.global_position = layer5.global_position
-	layer1.scale = layer5.scale
-	
-	layer5.global_position = buffer_position_4
-	layer5.scale = buffer_scale_4
-	
-	layer5.reparent(parallax_layer3)
-	layer4.reparent(parallax_layer2)
-	layer3.reparent(parallax_layer)
-	layer2.reparent(main_scene)
-	layer1.reparent(parallax_layer4)
+	if can_tp:
+		can_tp=0
+		var layer1 = main_scene.get_child(3)
+		var layer2 = parallax_layer.get_child(0)
+		var layer3 = parallax_layer2.get_child(0)
+		var layer4 = parallax_layer3.get_child(0)
+		var layer5 = parallax_layer4.get_child(0)
+		
+		if is_on_floor():
+			velocity.y = -300
+		set_collision_layer_value(1,0)
+		set_collision_mask_value(1,0)
+			
+		animation.animation = "jumping"
+		is_jumping = true
+		for i in DELTA:
+			animation.scale-= Vector2(0.1, 0.1)
+			await get_tree().create_timer(0.01).timeout
+			
+		var buffer_position_4 = layer4.global_position
+		var buffer_scale_4 = layer4.scale
+		
+		layer4.global_position = layer3.global_position
+		layer4.scale = layer3.scale
+		layer3.global_position = layer2.global_position
+		layer3.scale = layer2.scale
+		layer2.global_position = layer1.global_position
+		layer2.scale = layer1.scale
+		layer1.global_position = layer5.global_position
+		layer1.scale = layer5.scale
+		
+		layer5.global_position = buffer_position_4
+		layer5.scale = buffer_scale_4
+		
+		layer5.reparent(parallax_layer3)
+		layer4.reparent(parallax_layer2)
+		layer3.reparent(parallax_layer)
+		layer2.reparent(main_scene)
+		layer1.reparent(parallax_layer4)
+		
+		set_collision_layer_value(1,1)
+		set_collision_mask_value(1,1)
+		global_position.y-=100
+		
+		for i in DELTA:
+			animation.scale+= Vector2(0.1, 0.1)
+			await get_tree().create_timer(0.01).timeout
+		
+		if is_on_floor():
+			animation.animation = "default" 
+		can_tp = 1
 
 func reload_scene() -> void:
 	get_tree().reload_current_scene()
