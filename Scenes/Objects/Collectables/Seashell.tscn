@@ -4,6 +4,6 @@
 
 [node name="Seashell" instance=ExtResource("1_he3nd")]
 
-[node name="Sprite2D" parent="." index="2"]
+[node name="Sprite2D" parent="." index="1"]
 region_enabled = true
 region_rect = Rect2(32, 64, 32, 32)

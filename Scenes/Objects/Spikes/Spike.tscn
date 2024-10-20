@@ -1,20 +1,19 @@
 [gd_scene load_steps=2 format=3 uid="uid://cp2kndnmebkxw"]
 
-[ext_resource type="Script" path="res://Scenes/Objects/spike.gd" id="1_436fh"]
+[ext_resource type="Script" path="res://Scenes/Objects/Spikes/spike.gd" id="1_a8ep8"]
 
 [node name="Spike" type="Area2D"]
 collision_layer = 0
-script = ExtResource("1_436fh")
+script = ExtResource("1_a8ep8")
 
 [node name="HitDetectionArea" type="CollisionPolygon2D" parent="."]
-position = Vector2(7.00001, -1)
-scale = Vector2(7, 6.937)
+position = Vector2(10, -1)
+scale = Vector2(10, 9.91)
 polygon = PackedVector2Array(-4, 2.98108, 2, 2.98108, -1, -4)
 
-[node name="Polygon2D" type="Polygon2D" parent="."]
-unique_name_in_owner = true
-color = Color(0, 1, 1, 1)
-polygon = PackedVector2Array(-21, 20, 0, -28, 21, 20)
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture_filter = 1
+scale = Vector2(3.5, 3.5)
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
 [connection signal="body_exited" from="." to="." method="_on_body_exited"]
