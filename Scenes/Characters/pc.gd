@@ -169,9 +169,6 @@ func lift_player() -> void:
 	layer2.reparent(main_scene)
 	layer1.reparent(parallax_layer4)
 
-func reload_scene() -> void:
-	get_tree().reload_current_scene()
-
 func play_sfx(audio: AudioStreamOggVorbis, volume_intensity: float) -> void:
 	sfx_player.volume_db = volume_intensity
 	sfx_player.stream = audio
@@ -191,6 +188,9 @@ func type_of_bird(bird_name):
 
 func _on_theme_finished() -> void:
 	theme_player.play(0.0)
+
+func reload_scene() -> void:
+	get_tree().reload_current_scene()
 
 func _on_death_player_finished() -> void:
 	await get_tree().create_timer(0.3).timeout
