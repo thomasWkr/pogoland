@@ -1,0 +1,58 @@
+[gd_scene load_steps=7 format=3 uid="uid://c2dg3xk5aq2lw"]
+
+[ext_resource type="Texture2D" uid="uid://3mw07aetubf0" path="res://Assets/Sprites/Cutscene spritesheet.png" id="1_3fpgx"]
+[ext_resource type="Script" path="res://cutscene.gd" id="1_gxqff"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wkagj"]
+atlas = ExtResource("1_3fpgx")
+region = Rect2(0, 0, 1920, 1080)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lkyai"]
+atlas = ExtResource("1_3fpgx")
+region = Rect2(1920, 0, 1920, 1080)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5ulsc"]
+atlas = ExtResource("1_3fpgx")
+region = Rect2(3840, 0, 1920, 1080)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_i25hq"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wkagj")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_lkyai")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5ulsc")
+}],
+"loop": true,
+"name": &"default",
+"speed": 1.0
+}]
+
+[node name="Cutscene" type="Node2D"]
+script = ExtResource("1_gxqff")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+unique_name_in_owner = true
+position = Vector2(-3, 1.5)
+scale = Vector2(0.6, 0.597222)
+sprite_frames = SubResource("SpriteFrames_i25hq")
+
+[node name="RichTextLabel" type="RichTextLabel" parent="."]
+unique_name_in_owner = true
+offset_left = -332.0
+offset_top = 112.0
+offset_right = 438.0
+offset_bottom = 300.0
+theme_override_constants/text_highlight_h_padding = 10
+theme_override_constants/outline_size = 20
+theme_override_constants/shadow_offset_y = 20
+theme_override_font_sizes/normal_font_size = 60
+text = "PRESS ENTER TO START"
+
+[connection signal="animation_looped" from="AnimatedSprite2D" to="." method="_on_animated_sprite_2d_animation_looped"]
