@@ -13,6 +13,7 @@ extends CharacterBody2D
 @onready var animation = %AnimatedSprite2D
 @onready var particle_emitter = %BLOODSPREAD
 @onready var pogo_emitter = %PogoSpread
+@onready var counter_label = %CounterLabel
 
 
 var initial_position = 0
@@ -239,6 +240,7 @@ func type_of_bird(bird_name):
 func collect(): 
 	play_sfx(COIN_AUDIO, 0.0)
 	collectable_count += 1
+	counter_label.text = str(collectable_count) + '/5'
 	print(collectable_count)
 
 func _on_theme_finished() -> void:

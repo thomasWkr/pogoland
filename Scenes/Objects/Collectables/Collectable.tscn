@@ -1,7 +1,10 @@
-[gd_scene load_steps=4 format=3 uid="uid://cfpv5wco5qr6d"]
+[gd_scene load_steps=7 format=3 uid="uid://cfpv5wco5qr6d"]
 
 [ext_resource type="Script" path="res://Scenes/Objects/Collectables/collectable.gd" id="1_vjgws"]
-[ext_resource type="Texture2D" uid="uid://btwxstumkxw04" path="res://Assets/Sprites/Fish.png" id="2_sebwa"]
+[ext_resource type="Texture2D" uid="uid://b1a3udmcrwi3" path="res://Assets/Sprites/Fish.png" id="2_sebwa"]
+[ext_resource type="Texture2D" uid="uid://ck8om5t5pxdol" path="res://Assets/Sprites/Lona.png" id="3_5xhqy"]
+[ext_resource type="Script" path="res://Scenes/Objects/Collectables/sprite_2d_2.gd" id="4_sw6yi"]
+[ext_resource type="Script" path="res://Scenes/Objects/Collectables/sprite_2d.gd" id="5_5mov6"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_xk6hp"]
 
@@ -13,11 +16,18 @@ scale = Vector2(5, 5)
 shape = SubResource("CircleShape2D_xk6hp")
 debug_color = Color(0.792157, 1, 0.0313726, 0.419608)
 
+[node name="Sprite2D2" type="Sprite2D" parent="."]
+texture_filter = 1
+scale = Vector2(4, 4)
+texture = ExtResource("3_5xhqy")
+script = ExtResource("4_sw6yi")
+
 [node name="Sprite2D" type="Sprite2D" parent="."]
 unique_name_in_owner = true
 texture_filter = 1
 scale = Vector2(3.5, 3.5)
 texture = ExtResource("2_sebwa")
 region_rect = Rect2(0, 64, 32, 32)
+script = ExtResource("5_5mov6")
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
