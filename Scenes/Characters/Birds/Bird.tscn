@@ -21,6 +21,7 @@ shape = SubResource("RectangleShape2D_543k8")
 [node name="DetectionaArea" type="Area2D" parent="."]
 
 [node name="DetectionRange" type="CollisionShape2D" parent="DetectionaArea"]
+visible = false
 position = Vector2(20, 20)
 scale = Vector2(150, 150)
 shape = SubResource("CircleShape2D_qbd8u")
