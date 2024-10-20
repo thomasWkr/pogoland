@@ -40,6 +40,78 @@ const UFO_AUDIO = preload("res://Assets/Audio/ufo.ogg")
 const FAIRY_AUDIO = preload("res://Assets/Audio/fairy.ogg")
 
 
+@onready var tilemap_layer1 = get_parent().get_child(3).get_child(2)
+@onready var tilemap_layer2 = get_parent().get_child(1).get_child(0).get_child(0).get_child(2)
+@onready var tilemap_layer3 = get_parent().get_child(1).get_child(1).get_child(0).get_child(2)
+@onready var tilemap_layer4 = get_parent().get_child(1).get_child(2).get_child(0).get_child(2)
+@onready var tilemap_layer5 = get_parent().get_child(2).get_child(0).get_child(0).get_child(2)
+
+var current_layer = 1
+
+func up_layer():
+	if current_layer == 5:
+		current_layer= 1
+	else: 
+		current_layer+=1
+
+func down_layer():
+	if current_layer == 1:
+		current_layer= 5
+	else: 
+		current_layer-=1
+
+func _ready():
+	flash()
+	unflash(current_layer)
+	# Imprimir o nome do nó que foi acessado
+	print(tilemap_layer1.name)
+	print(tilemap_layer3.name)
+	print(tilemap_layer4.name)
+	print(tilemap_layer5.name)
+#shader function
+func flash():
+	print(current_layer)
+	tilemap_layer1.material.set_shader_parameter("modifier", 0.5)
+	tilemap_layer2.material.set_shader_parameter("modifier", 0.5)
+	tilemap_layer3.material.set_shader_parameter("modifier", 0.65)
+	tilemap_layer4.material.set_shader_parameter("modifier", 0.8)
+	tilemap_layer5.material.set_shader_parameter("modifier", 0.5)
+
+	
+func unflash(current_layer):
+	match current_layer:
+		1:
+			tilemap_layer1.material.set_shader_parameter("modifier", 0)
+			tilemap_layer2.material.set_shader_parameter("modifier", 0.5)
+			tilemap_layer3.material.set_shader_parameter("modifier", 0.65)
+			tilemap_layer4.material.set_shader_parameter("modifier", 0.8)
+			tilemap_layer5.material.set_shader_parameter("modifier", 0.5)
+		2:
+			tilemap_layer1.material.set_shader_parameter("modifier", 0.5)
+			tilemap_layer2.material.set_shader_parameter("modifier", 0)
+			tilemap_layer3.material.set_shader_parameter("modifier", 0.5)
+			tilemap_layer4.material.set_shader_parameter("modifier", 0.65)
+			tilemap_layer5.material.set_shader_parameter("modifier", 0.8)
+		3:
+			tilemap_layer1.material.set_shader_parameter("modifier", 0.8)
+			tilemap_layer2.material.set_shader_parameter("modifier", 0.5)
+			tilemap_layer3.material.set_shader_parameter("modifier", 0)
+			tilemap_layer4.material.set_shader_parameter("modifier", 0.5)
+			tilemap_layer5.material.set_shader_parameter("modifier", 0.65)
+		4:
+			tilemap_layer1.material.set_shader_parameter("modifier", 0.65)
+			tilemap_layer2.material.set_shader_parameter("modifier", 0.8)
+			tilemap_layer3.material.set_shader_parameter("modifier", 0.5)
+			tilemap_layer4.material.set_shader_parameter("modifier", 0)
+			tilemap_layer5.material.set_shader_parameter("modifier", 0.5)
+		5:
+			tilemap_layer1.material.set_shader_parameter("modifier", 0.5)
+			tilemap_layer2.material.set_shader_parameter("modifier", 0.65)
+			tilemap_layer3.material.set_shader_parameter("modifier", 0.8)
+			tilemap_layer4.material.set_shader_parameter("modifier", 0.5)
+			tilemap_layer5.material.set_shader_parameter("modifier", 0)
+		   
+
 # Function to start the screenshake effect with custom intensity and duration
 func start_screenshake(intensity: float, duration: float) -> void:
 	shake_magnitude = intensity
@@ -96,6 +168,9 @@ func _physics_process(delta: float) -> void:
 		move_and_slide()
 
 func drop_player() -> void:
+	down_layer()
+	flash()
+	unflash(current_layer)
 	var layer1 = main_scene.get_child(3)
 	var layer2 = parallax_layer.get_child(0)
 	var layer3 = parallax_layer2.get_child(0)
@@ -124,6 +199,9 @@ func drop_player() -> void:
 
 
 func lift_player() -> void:
+	up_layer()
+	flash()
+	unflash(current_layer)
 	var layer1 = main_scene.get_child(3)
 	var layer2 = parallax_layer.get_child(0)
 	var layer3 = parallax_layer2.get_child(0)
