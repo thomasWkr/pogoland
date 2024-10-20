@@ -1,7 +1,7 @@
 [gd_scene load_steps=9 format=4 uid="uid://cwup8c5bfvvam"]
 
-[ext_resource type="PackedScene" uid="uid://cp2kndnmebkxw" path="res://Scenes/Objects/Spike.tscn" id="2_mnu40"]
 [ext_resource type="Texture2D" uid="uid://imqmgfneaap0" path="res://Assets/Floor.png" id="4_6ien4"]
+[ext_resource type="PackedScene" uid="uid://7dtgohouf6ns" path="res://Scenes/Objects/Spikes/SeaUrchin.tscn" id="4_awmrp"]
 [ext_resource type="PackedScene" uid="uid://b2tw4xdqm2f6v" path="res://Scenes/Characters/Birds/Fish.tscn" id="4_ighf8"]
 [ext_resource type="PackedScene" uid="uid://2ep2yefvy4sx" path="res://Scenes/Objects/Collectables/Seashell.tscn" id="4_yl7vi"]
 
@@ -68,10 +68,6 @@ position = Vector2(2346, 217)
 scale = Vector2(1e-05, 1)
 shape = SubResource("RectangleShape2D_k5yga")
 
-[node name="Spike" parent="." instance=ExtResource("2_mnu40")]
-position = Vector2(652, -19)
-color = "000089"
-
 [node name="TileMapLayer" type="TileMapLayer" parent="."]
 texture_filter = 1
 position = Vector2(0, -25)
@@ -90,3 +86,9 @@ position = Vector2(1855, -124)
 
 [node name="Fish3" parent="." instance=ExtResource("4_ighf8")]
 position = Vector2(1481, -124)
+
+[node name="SeaUrchin" parent="." instance=ExtResource("4_awmrp")]
+position = Vector2(1009, -1)
+
+[node name="SeaUrchin2" parent="." instance=ExtResource("4_awmrp")]
+position = Vector2(1701, -5)

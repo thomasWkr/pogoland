@@ -1,8 +1,8 @@
 [gd_scene load_steps=7 format=4 uid="uid://muxd3ux7fyyo"]
 
-[ext_resource type="PackedScene" uid="uid://cp2kndnmebkxw" path="res://Scenes/Objects/Spike.tscn" id="1_0hd8o"]
 [ext_resource type="Texture2D" uid="uid://imqmgfneaap0" path="res://Assets/Floor.png" id="2_a46sy"]
 [ext_resource type="PackedScene" uid="uid://1n26wt4d2pv2" path="res://Scenes/Characters/Birds/UFO.tscn" id="3_m4b6j"]
+[ext_resource type="PackedScene" uid="uid://cppssok227bx2" path="res://Scenes/Objects/Spikes/Meteor.tscn" id="3_rk2rn"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_pjyye"]
 size = Vector2(46.97, 391)
@@ -53,10 +53,6 @@ position = Vector2(2346.5, 234.5)
 scale = Vector2(100, 1)
 shape = SubResource("RectangleShape2D_pjyye")
 
-[node name="Spike" parent="." instance=ExtResource("1_0hd8o")]
-position = Vector2(2806, -22)
-color = "9a0000"
-
 [node name="TileMapLayer" type="TileMapLayer" parent="."]
 texture_filter = 1
 scale = Vector2(3.5, 3.5)
@@ -71,3 +67,9 @@ position = Vector2(2260, -90)
 
 [node name="UFO3" parent="." instance=ExtResource("3_m4b6j")]
 position = Vector2(3078, -93)
+
+[node name="Meteor" parent="." instance=ExtResource("3_rk2rn")]
+position = Vector2(1658, 0)
+
+[node name="Meteor2" parent="." instance=ExtResource("3_rk2rn")]
+position = Vector2(2614, 9)

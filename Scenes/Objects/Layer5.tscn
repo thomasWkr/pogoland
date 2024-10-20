@@ -1,7 +1,7 @@
 [gd_scene load_steps=7 format=4 uid="uid://ddwewto08vhwb"]
 
-[ext_resource type="PackedScene" uid="uid://cp2kndnmebkxw" path="res://Scenes/Objects/Spike.tscn" id="1_a8tjr"]
 [ext_resource type="Texture2D" uid="uid://bacewqvl1rsgm" path="res://Assets/Sprites/Floor.png" id="2_f7v0t"]
+[ext_resource type="PackedScene" uid="uid://oaibfjmsr8gr" path="res://Scenes/Objects/Spikes/Tentacles.tscn" id="3_p0d3n"]
 [ext_resource type="PackedScene" uid="uid://vryoe4adofni" path="res://Scenes/Characters/Birds/Fairy.tscn" id="3_qpijs"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_omyqs"]
@@ -51,10 +51,6 @@ sources/2 = SubResource("TileSetAtlasSource_ki7mt")
 position = Vector2(2350, 222)
 shape = SubResource("RectangleShape2D_omyqs")
 
-[node name="Spike" parent="." instance=ExtResource("1_a8tjr")]
-position = Vector2(899, -26)
-color = "672352"
-
 [node name="TileMapLayer" type="TileMapLayer" parent="."]
 texture_filter = 1
 position = Vector2(5, -64)
@@ -67,3 +63,15 @@ position = Vector2(1550, -137)
 
 [node name="Fairy2" parent="." instance=ExtResource("3_qpijs")]
 position = Vector2(2213, -155)
+
+[node name="Tentacles" parent="." instance=ExtResource("3_p0d3n")]
+position = Vector2(1091, -10)
+
+[node name="Tentacles2" parent="." instance=ExtResource("3_p0d3n")]
+position = Vector2(1766, -7)
+
+[node name="Tentacles3" parent="." instance=ExtResource("3_p0d3n")]
+position = Vector2(2428, 2)
+
+[node name="Tentacles4" parent="." instance=ExtResource("3_p0d3n")]
+position = Vector2(2943, -7)

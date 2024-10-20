@@ -1,0 +1,12 @@
+[gd_scene load_steps=3 format=3 uid="uid://cm0f8mvflfs2f"]
+
+[ext_resource type="PackedScene" uid="uid://cp2kndnmebkxw" path="res://Scenes/Objects/Spikes/Spike.tscn" id="1_xji8x"]
+[ext_resource type="Texture2D" uid="uid://dkf0cei0deyxk" path="res://Assets/Sprites/Spikes.png" id="2_3myhl"]
+
+[node name="Vines" instance=ExtResource("1_xji8x")]
+
+[node name="Sprite2D" parent="." index="1"]
+position = Vector2(-2, -26)
+texture = ExtResource("2_3myhl")
+region_enabled = true
+region_rect = Rect2(0, 0, 32, 33)
