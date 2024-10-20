@@ -1,7 +1,7 @@
 [gd_scene load_steps=7 format=4 uid="uid://mbv8mcxko8r"]
 
 [ext_resource type="PackedScene" uid="uid://cp2kndnmebkxw" path="res://Scenes/Objects/Spike.tscn" id="1_6pqpt"]
-[ext_resource type="Texture2D" uid="uid://imqmgfneaap0" path="res://Assets/Floor.png" id="2_nmwun"]
+[ext_resource type="Texture2D" uid="uid://bacewqvl1rsgm" path="res://Assets/Sprites/Floor.png" id="2_nmwun"]
 [ext_resource type="PackedScene" uid="uid://di3xh7l3prsgw" path="res://Scenes/Characters/Birds/Seagull.tscn" id="3_qm6xs"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_pjyye"]

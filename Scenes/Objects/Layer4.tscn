@@ -1,7 +1,7 @@
 [gd_scene load_steps=7 format=4 uid="uid://muxd3ux7fyyo"]
 
 [ext_resource type="PackedScene" uid="uid://cp2kndnmebkxw" path="res://Scenes/Objects/Spike.tscn" id="1_0hd8o"]
-[ext_resource type="Texture2D" uid="uid://imqmgfneaap0" path="res://Assets/Floor.png" id="2_a46sy"]
+[ext_resource type="Texture2D" uid="uid://bacewqvl1rsgm" path="res://Assets/Sprites/Floor.png" id="2_a46sy"]
 [ext_resource type="PackedScene" uid="uid://1n26wt4d2pv2" path="res://Scenes/Characters/Birds/UFO.tscn" id="3_m4b6j"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_pjyye"]

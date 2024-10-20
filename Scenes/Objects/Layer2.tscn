@@ -1,6 +1,6 @@
 [gd_scene load_steps=7 format=4 uid="uid://f03khr11yust"]
 
-[ext_resource type="Texture2D" uid="uid://imqmgfneaap0" path="res://Assets/Floor.png" id="1_ohxwb"]
+[ext_resource type="Texture2D" uid="uid://bacewqvl1rsgm" path="res://Assets/Sprites/Floor.png" id="1_ohxwb"]
 [ext_resource type="PackedScene" uid="uid://cp2kndnmebkxw" path="res://Scenes/Objects/Spike.tscn" id="2_soq7l"]
 [ext_resource type="PackedScene" uid="uid://dmxct4o3nujh" path="res://Scenes/Characters/Birds/Dragonfly.tscn" id="3_e1qb4"]
 
