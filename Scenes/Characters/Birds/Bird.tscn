@@ -1,11 +1,18 @@
-[gd_scene load_steps=4 format=3 uid="uid://b7vxrnjl3jj85"]
+[gd_scene load_steps=6 format=3 uid="uid://b7vxrnjl3jj85"]
 
+[ext_resource type="Shader" path="res://Scenes/Objects/LayerShader.gdshader" id="1_d7w47"]
 [ext_resource type="Script" path="res://Scenes/Characters/Birds/bird.gd" id="1_xwnrs"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_543k8"]
 size = Vector2(38, 11)
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_qbd8u"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_4hcu7"]
+resource_local_to_scene = true
+shader = ExtResource("1_d7w47")
+shader_parameter/flash_color = Color(0.5, 0.5, 0.5, 1)
+shader_parameter/modifier = 0.0
 
 [node name="Bird" type="CharacterBody2D"]
 collision_layer = 2
@@ -27,6 +34,7 @@ scale = Vector2(150, 150)
 shape = SubResource("CircleShape2D_qbd8u")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+material = SubResource("ShaderMaterial_4hcu7")
 scale = Vector2(3.5, 3.5)
 
 [connection signal="body_entered" from="PogoDetectionArea" to="." method="_on_pogo_detection_area_body_entered"]

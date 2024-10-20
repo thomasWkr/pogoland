@@ -1,7 +1,7 @@
 [gd_scene load_steps=8 format=3 uid="uid://di3xh7l3prsgw"]
 
 [ext_resource type="PackedScene" uid="uid://b7vxrnjl3jj85" path="res://Scenes/Characters/Birds/Bird.tscn" id="1_4q3r3"]
-[ext_resource type="Texture2D" uid="uid://b0brqclfaxw5i" path="res://Assets/Sprites/ET, Dragonfly, seagol.png" id="2_8c82k"]
+[ext_resource type="Texture2D" uid="uid://dll3k87ru3162" path="res://Assets/Sprites/ET, Dragonfly, seagol.png" id="2_8c82k"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_5xqiw"]
 atlas = ExtResource("2_8c82k")

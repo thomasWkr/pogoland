@@ -1,7 +1,7 @@
 [gd_scene load_steps=8 format=3 uid="uid://vryoe4adofni"]
 
 [ext_resource type="PackedScene" uid="uid://b7vxrnjl3jj85" path="res://Scenes/Characters/Birds/Bird.tscn" id="1_v5tvf"]
-[ext_resource type="Texture2D" uid="uid://btwxstumkxw04" path="res://Assets/Sprites/Fish.png" id="2_rkhh8"]
+[ext_resource type="Texture2D" uid="uid://b1a3udmcrwi3" path="res://Assets/Sprites/Fish.png" id="2_rkhh8"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_1v5rx"]
 atlas = ExtResource("2_rkhh8")
