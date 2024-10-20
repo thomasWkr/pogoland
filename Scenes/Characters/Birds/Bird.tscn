@@ -1,6 +1,6 @@
 [gd_scene load_steps=4 format=3 uid="uid://b7vxrnjl3jj85"]
 
-[ext_resource type="Script" path="res://Scenes/Characters/bird.gd" id="1_ikggd"]
+[ext_resource type="Script" path="res://Scenes/Characters/Birds/bird.gd" id="1_xwnrs"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_543k8"]
 size = Vector2(38, 11)
@@ -9,28 +9,25 @@ size = Vector2(38, 11)
 
 [node name="Bird" type="CharacterBody2D"]
 collision_layer = 2
-script = ExtResource("1_ikggd")
-
-[node name="ColorRect" type="ColorRect" parent="."]
-offset_right = 40.0
-offset_bottom = 40.0
-color = Color(0.74441, 0.000425091, 0.744405, 1)
+script = ExtResource("1_xwnrs")
 
 [node name="PogoDetectionArea" type="Area2D" parent="."]
 
 [node name="DetectionArea" type="CollisionShape2D" parent="PogoDetectionArea"]
-position = Vector2(20, 0)
-scale = Vector2(1, 1.2)
+position = Vector2(20, -12)
+scale = Vector2(1.167, 1.4)
 shape = SubResource("RectangleShape2D_543k8")
 
 [node name="DetectionaArea" type="Area2D" parent="."]
 
 [node name="DetectionRange" type="CollisionShape2D" parent="DetectionaArea"]
 position = Vector2(20, 20)
-scale = Vector2(3, 3)
+scale = Vector2(150, 150)
 shape = SubResource("CircleShape2D_qbd8u")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+scale = Vector2(3.5, 3.5)
 
 [connection signal="body_entered" from="PogoDetectionArea" to="." method="_on_pogo_detection_area_body_entered"]
 [connection signal="body_exited" from="PogoDetectionArea" to="." method="_on_pogo_detection_area_body_exited"]
 [connection signal="body_entered" from="DetectionaArea" to="." method="_on_detectiona_area_body_entered"]
-[connection signal="body_exited" from="DetectionaArea" to="." method="_on_detectiona_area_body_exited"]

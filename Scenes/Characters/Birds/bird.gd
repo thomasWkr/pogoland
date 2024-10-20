@@ -34,9 +34,3 @@ func _on_pogo_detection_area_body_exited(body: Node2D) -> void:
 func _on_detectiona_area_body_entered(body: Node2D) -> void:
 	if(body.name == "Pc"):
 		persue = true
-	pass # Replace with function body.
-
-func _on_detectiona_area_body_exited(body: Node2D) -> void:
-	if(body.name == "Pc"):
-		persue = false
-	pass # Replace with function body.

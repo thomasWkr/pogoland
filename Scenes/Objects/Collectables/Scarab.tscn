@@ -1,0 +1,9 @@
+[gd_scene load_steps=2 format=3 uid="uid://daimenqyqnvkq"]
+
+[ext_resource type="PackedScene" uid="uid://cfpv5wco5qr6d" path="res://Scenes/Objects/Collectables/Collectable.tscn" id="1_uchro"]
+
+[node name="Scarab" instance=ExtResource("1_uchro")]
+
+[node name="Sprite2D" parent="." index="2"]
+region_enabled = true
+region_rect = Rect2(0, 96, 32, 32)

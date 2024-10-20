@@ -1,0 +1,48 @@
+[gd_scene load_steps=8 format=3 uid="uid://vryoe4adofni"]
+
+[ext_resource type="PackedScene" uid="uid://b7vxrnjl3jj85" path="res://Scenes/Characters/Birds/Bird.tscn" id="1_v5tvf"]
+[ext_resource type="Texture2D" uid="uid://btwxstumkxw04" path="res://Assets/Sprites/Fish.png" id="2_rkhh8"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1v5rx"]
+atlas = ExtResource("2_rkhh8")
+region = Rect2(0, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bniqf"]
+atlas = ExtResource("2_rkhh8")
+region = Rect2(32, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_64cj1"]
+atlas = ExtResource("2_rkhh8")
+region = Rect2(64, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5b6lv"]
+atlas = ExtResource("2_rkhh8")
+region = Rect2(96, 32, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_e1awc"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1v5rx")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bniqf")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_64cj1")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5b6lv")
+}],
+"loop": true,
+"name": &"default",
+"speed": 8.0
+}]
+
+[node name="Fairy" instance=ExtResource("1_v5tvf")]
+
+[node name="AnimatedSprite2D" parent="." index="2"]
+texture_filter = 1
+position = Vector2(22, 18)
+sprite_frames = SubResource("SpriteFrames_e1awc")
+autoplay = "default"

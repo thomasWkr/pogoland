@@ -1,0 +1,48 @@
+[gd_scene load_steps=8 format=3 uid="uid://dmxct4o3nujh"]
+
+[ext_resource type="PackedScene" uid="uid://b7vxrnjl3jj85" path="res://Scenes/Characters/Birds/Bird.tscn" id="1_6f2ig"]
+[ext_resource type="Texture2D" uid="uid://b0brqclfaxw5i" path="res://Assets/Sprites/ET, Dragonfly, seagol.png" id="2_ynnk6"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kh70c"]
+atlas = ExtResource("2_ynnk6")
+region = Rect2(96, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vexdb"]
+atlas = ExtResource("2_ynnk6")
+region = Rect2(128, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ruylv"]
+atlas = ExtResource("2_ynnk6")
+region = Rect2(160, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5s74w"]
+atlas = ExtResource("2_ynnk6")
+region = Rect2(192, 0, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_krw34"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_kh70c")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vexdb")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ruylv")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5s74w")
+}],
+"loop": true,
+"name": &"default",
+"speed": 8.0
+}]
+
+[node name="Dragonfly" instance=ExtResource("1_6f2ig")]
+
+[node name="AnimatedSprite2D" parent="." index="2"]
+texture_filter = 1
+position = Vector2(25, 20)
+sprite_frames = SubResource("SpriteFrames_krw34")
+autoplay = "default"

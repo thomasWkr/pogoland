@@ -1,0 +1,11 @@
+[gd_scene load_steps=2 format=3 uid="uid://b56bjjkgwnjvd"]
+
+[ext_resource type="PackedScene" uid="uid://cfpv5wco5qr6d" path="res://Scenes/Objects/Collectables/Collectable.tscn" id="1_khobj"]
+
+[node name="Starfish" instance=ExtResource("1_khobj")]
+
+[node name="CollectDetectionArea" parent="." index="0"]
+scale = Vector2(3.5, 3.5)
+
+[node name="Sprite2D" parent="." index="2"]
+region_enabled = true
