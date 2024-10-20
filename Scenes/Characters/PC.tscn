@@ -144,6 +144,42 @@ position = Vector2(14, 8)
 scale = Vector2(3.5, 3.5)
 sprite_frames = SubResource("SpriteFrames_0to68")
 
+[node name="BLOODSPREAD" type="CPUParticles2D" parent="."]
+unique_name_in_owner = true
+position = Vector2(12, 14)
+emitting = false
+amount = 30
+one_shot = true
+explosiveness = 1.0
+randomness = 1.0
+emission_shape = 1
+emission_sphere_radius = 40.0
+direction = Vector2(0, 0)
+spread = 180.0
+gravity = Vector2(0, 0)
+initial_velocity_min = 20.0
+initial_velocity_max = 200.0
+scale_amount_min = 5.0
+scale_amount_max = 5.0
+color = Color(1, 0, 0, 1)
+
+[node name="PogoSpread" type="CPUParticles2D" parent="."]
+unique_name_in_owner = true
+position = Vector2(71, 48)
+emitting = false
+amount = 10
+lifetime = 0.5
+one_shot = true
+explosiveness = 1.0
+randomness = 1.0
+direction = Vector2(-100, -100)
+spread = 70.0
+gravity = Vector2(0, -1)
+initial_velocity_min = 20.0
+initial_velocity_max = 100.0
+scale_amount_min = 3.5
+scale_amount_max = 3.5
+
 [connection signal="finished" from="Theme" to="." method="_on_theme_finished"]
 [connection signal="finished" from="DeathPlayer" to="." method="_on_death_player_finished"]
 [connection signal="animation_finished" from="AnimatedSprite2D" to="." method="_on_animated_sprite_2d_animation_finished"]

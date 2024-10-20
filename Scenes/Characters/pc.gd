@@ -11,9 +11,13 @@ extends CharacterBody2D
 @onready var switch_layer_player = %SwitchLayerPlayer
 @onready var death_player = %DeathPlayer
 @onready var animation = %AnimatedSprite2D
+@onready var particle_emitter = %BLOODSPREAD
+@onready var pogo_emitter = %PogoSpread
+
 
 
 var initial_position = 0
+var collectable_count = 0
 var is_jumping = false
 var can_pogo = false
 var got_hit = false
@@ -57,7 +61,6 @@ func _process(delta: float) -> void:
 		if shake_timer <= 0:
 			camera.position = original_camera_position  # Reset camera position after shaking
 
-
 func _init() -> void:
 	initial_position = global_position
 
@@ -68,8 +71,9 @@ func _physics_process(delta: float) -> void:
 	if(alive):
 		if(got_hit or global_position.y >= 500):
 			alive = false
-			animation.pause()
-			start_screenshake(50, 1.2)  
+			animation.visible = false
+			particle_emitter.emitting = true
+			start_screenshake(10, 1.2)  
 			death_player.play()
 
 		if not is_on_floor():
@@ -86,6 +90,7 @@ func _physics_process(delta: float) -> void:
 		if Input.is_action_just_pressed("jump"):
 			if(is_on_floor()):
 				is_jumping = true
+				pogo_emitter.emitting = true
 				animation.animation = "jumping"
 				play_sfx(JUMP_AUDIO, -10.0)
 				velocity.y = JUMP_VELOCITY
@@ -182,10 +187,10 @@ func type_of_bird(bird_name):
 	elif(bird.name.contains("UFO")):
 		play_sfx(UFO_AUDIO, 0.0)
 	elif(bird.name.contains("Fairy")):
-		play_sfx(FAIRY_AUDIO, 0.0)
+		play_sfx(FAIRY_AUDIO, 3.0)
 
 func _on_theme_finished() -> void:
-	theme_player.play(1.09)
+	theme_player.play(0.0)
 
 func _on_death_player_finished() -> void:
 	await get_tree().create_timer(0.3).timeout
