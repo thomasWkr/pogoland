@@ -27,7 +27,7 @@ var shake_timer = 0.0     # Timer to track the shake duration
 var original_camera_position = Vector2()
 
 
-const SPEED = 0.0
+const SPEED = 300.0
 const JUMP_VELOCITY = -600.0
 const GRAVITY = 1100.0
 const ASCEND_MULTIPLIER = 1.6  # Controls the ascend speed (higher = faster)
@@ -68,6 +68,7 @@ func _physics_process(delta: float) -> void:
 	if(alive):
 		if(got_hit or global_position.y >= 500):
 			alive = false
+			animation.pause()
 			start_screenshake(50, 1.2)  
 			death_player.play()
 

@@ -46,7 +46,7 @@ texture = ExtResource("1_ohxwb")
 sources/0 = SubResource("TileSetAtlasSource_slxi6")
 
 [node name="Layer2" type="StaticBody2D"]
-position = Vector2(-20024, -222)
+position = Vector2(6, 3)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 texture_filter = 1
