@@ -14,6 +14,7 @@ extends CharacterBody2D
 
 
 var initial_position = 0
+var is_jumping = false
 var can_pogo = false
 var got_hit = false
 var alive = true
@@ -75,9 +76,16 @@ func _physics_process(delta: float) -> void:
 				velocity.y += GRAVITY * delta * ASCEND_MULTIPLIER
 			else:  # Descending
 				velocity.y += GRAVITY * delta * DESCEND_MULTIPLIER
+		else:
+			if(is_jumping):
+				animation.animation = "default"
+				animation.play()
+				is_jumping = false
 
 		if Input.is_action_just_pressed("jump"):
 			if(is_on_floor()):
+				is_jumping = true
+				animation.animation = "jumping"
 				play_sfx(JUMP_AUDIO, -10.0)
 				velocity.y = JUMP_VELOCITY
 				#start_screenshake()  # Start the screenshake when jumping

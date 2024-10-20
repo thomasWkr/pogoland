@@ -63,12 +63,12 @@ sources/0 = SubResource("TileSetAtlasSource_8gtis")
 script = SubResource("GDScript_dvaas")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(2000, 215)
+position = Vector2(1998, 218)
 scale = Vector2(1e-05, 1)
 shape = SubResource("RectangleShape2D_k5yga")
 
 [node name="Spike" parent="." instance=ExtResource("2_mnu40")]
-position = Vector2(632, 5)
+position = Vector2(652, 6)
 color = "000089"
 
 [node name="TileMapLayer" type="TileMapLayer" parent="."]
