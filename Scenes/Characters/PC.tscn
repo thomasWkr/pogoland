@@ -5,7 +5,7 @@
 [ext_resource type="AudioStream" uid="uid://ylh1rmjdffg8" path="res://Assets/Audio/jump.ogg" id="3_qwef1"]
 [ext_resource type="AudioStream" uid="uid://dh2x10dy0ihv8" path="res://Assets/Audio/layer.ogg" id="4_605uw"]
 [ext_resource type="AudioStream" uid="uid://c52yjqpoomcgi" path="res://Assets/Audio/death.ogg" id="5_v2ob3"]
-[ext_resource type="Texture2D" uid="uid://bknbr1hj8ewrn" path="res://Assets/Sprites/MC sprites.png" id="6_isyr2"]
+[ext_resource type="Texture2D" uid="uid://cqcrsknep6r44" path="res://Assets/MC sprites.png" id="6_isyr2"]
 [ext_resource type="Texture2D" uid="uid://c1gs5brkcdel7" path="res://Assets/Sprites/MC jumping.png" id="7_6rjd4"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_ntenl"]
