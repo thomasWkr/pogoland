@@ -1,5 +1,6 @@
-[gd_scene load_steps=9 format=4 uid="uid://ddwewto08vhwb"]
+[gd_scene load_steps=10 format=4 uid="uid://ddwewto08vhwb"]
 
+[ext_resource type="PackedScene" uid="uid://cp2kndnmebkxw" path="res://Scenes/Objects/Spike.tscn" id="1_a8tjr"]
 [ext_resource type="Shader" path="res://Scenes/Objects/LayersShader.gdshader" id="1_racqy"]
 [ext_resource type="Texture2D" uid="uid://bacewqvl1rsgm" path="res://Assets/Sprites/Floor.png" id="2_f7v0t"]
 [ext_resource type="PackedScene" uid="uid://vryoe4adofni" path="res://Scenes/Characters/Birds/Fairy.tscn" id="3_qpijs"]
@@ -64,19 +65,9 @@ material = SubResource("ShaderMaterial_ptlln")
 position = Vector2(2350, 222)
 shape = SubResource("RectangleShape2D_omyqs")
 
-[node name="Spike" parent="."]
-_import_path = NodePath("")
-unique_name_in_owner = false
-process_mode = 0
-process_priority = 0
-process_physics_priority = 0
-process_thread_group = 0
-physics_interpolation_mode = 0
-auto_translate_mode = 0
-editor_description = ""
+[node name="Spike" parent="." instance=ExtResource("1_a8tjr")]
 position = Vector2(899, -26)
 color = "672352"
-script = null
 
 [node name="TileMapLayer5" type="TileMapLayer" parent="."]
 texture_filter = 1
