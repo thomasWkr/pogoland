@@ -117,6 +117,9 @@ position = Vector2(5448, -168)
 [node name="UFO4" parent="." instance=ExtResource("3_m4b6j")]
 position = Vector2(5684, -243)
 
+[node name="UFO5" parent="." instance=ExtResource("3_m4b6j")]
+position = Vector2(11500, -150)
+
 [node name="Artifact" parent="." instance=ExtResource("4_an443")]
 position = Vector2(4972, -380)
 
@@ -174,5 +177,74 @@ position = Vector2(6556, -15)
 [node name="Meteor38" parent="." instance=ExtResource("3_rk2rn")]
 position = Vector2(6626, -14)
 
-[node name="Artifact2" parent="." instance=ExtResource("4_an443")]
-position = Vector2(9020, -380)
+[node name="Meteor47" parent="." instance=ExtResource("3_rk2rn")]
+position = Vector2(6698, -14)
+
+[node name="Meteor48" parent="." instance=ExtResource("3_rk2rn")]
+position = Vector2(6769, -15)
+
+[node name="Meteor49" parent="." instance=ExtResource("3_rk2rn")]
+position = Vector2(6839, -14)
+
+[node name="Meteor50" parent="." instance=ExtResource("3_rk2rn")]
+position = Vector2(6769, -15)
+
+[node name="Meteor51" parent="." instance=ExtResource("3_rk2rn")]
+position = Vector2(6839, -14)
+
+[node name="Meteor52" parent="." instance=ExtResource("3_rk2rn")]
+position = Vector2(6910, -18)
+
+[node name="Meteor53" parent="." instance=ExtResource("3_rk2rn")]
+position = Vector2(6980, -17)
+
+[node name="Meteor54" parent="." instance=ExtResource("3_rk2rn")]
+position = Vector2(6910, -18)
+
+[node name="Meteor55" parent="." instance=ExtResource("3_rk2rn")]
+position = Vector2(6980, -17)
+
+[node name="Meteor39" parent="." instance=ExtResource("3_rk2rn")]
+position = Vector2(7051, -14)
+
+[node name="Meteor40" parent="." instance=ExtResource("3_rk2rn")]
+position = Vector2(7121, -13)
+
+[node name="Meteor41" parent="." instance=ExtResource("3_rk2rn")]
+position = Vector2(7195, -16)
+
+[node name="Meteor42" parent="." instance=ExtResource("3_rk2rn")]
+position = Vector2(7266, -17)
+
+[node name="Meteor43" parent="." instance=ExtResource("3_rk2rn")]
+position = Vector2(7336, -16)
+
+[node name="Meteor44" parent="." instance=ExtResource("3_rk2rn")]
+position = Vector2(7405, -14)
+
+[node name="Meteor45" parent="." instance=ExtResource("3_rk2rn")]
+position = Vector2(7476, -15)
+
+[node name="Meteor46" parent="." instance=ExtResource("3_rk2rn")]
+position = Vector2(7546, -14)
+
+[node name="Meteor56" parent="." instance=ExtResource("3_rk2rn")]
+position = Vector2(7617, -17)
+
+[node name="Meteor57" parent="." instance=ExtResource("3_rk2rn")]
+position = Vector2(7687, -16)
+
+[node name="Meteor58" parent="." instance=ExtResource("3_rk2rn")]
+position = Vector2(7756, -14)
+
+[node name="Meteor59" parent="." instance=ExtResource("3_rk2rn")]
+position = Vector2(7827, -15)
+
+[node name="Meteor60" parent="." instance=ExtResource("3_rk2rn")]
+position = Vector2(7897, -14)
+
+[node name="Meteor61" parent="." instance=ExtResource("3_rk2rn")]
+position = Vector2(8179, -15)
+
+[node name="Meteor62" parent="." instance=ExtResource("3_rk2rn")]
+position = Vector2(8249, -14)

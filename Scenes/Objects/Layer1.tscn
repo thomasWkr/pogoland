@@ -146,8 +146,53 @@ position = Vector2(6997, -13)
 [node name="SeaUrchin21" parent="." instance=ExtResource("4_awmrp")]
 position = Vector2(7102, -13)
 
+[node name="SeaUrchin22" parent="." instance=ExtResource("4_awmrp")]
+position = Vector2(7211, -13)
+
+[node name="SeaUrchin23" parent="." instance=ExtResource("4_awmrp")]
+position = Vector2(7314, -13)
+
+[node name="SeaUrchin24" parent="." instance=ExtResource("4_awmrp")]
+position = Vector2(7419, -13)
+
+[node name="SeaUrchin25" parent="." instance=ExtResource("4_awmrp")]
+position = Vector2(7767, -9)
+
+[node name="SeaUrchin26" parent="." instance=ExtResource("4_awmrp")]
+position = Vector2(7872, -9)
+
+[node name="SeaUrchin27" parent="." instance=ExtResource("4_awmrp")]
+position = Vector2(7983, -10)
+
+[node name="SeaUrchin28" parent="." instance=ExtResource("4_awmrp")]
+position = Vector2(8088, -10)
+
+[node name="SeaUrchin29" parent="." instance=ExtResource("4_awmrp")]
+position = Vector2(8199, -8)
+
+[node name="SeaUrchin30" parent="." instance=ExtResource("4_awmrp")]
+position = Vector2(8304, -8)
+
+[node name="SeaUrchin32" parent="." instance=ExtResource("4_awmrp")]
+position = Vector2(8802, -8)
+
+[node name="SeaUrchin33" parent="." instance=ExtResource("4_awmrp")]
+position = Vector2(8913, -6)
+
+[node name="SeaUrchin34" parent="." instance=ExtResource("4_awmrp")]
+position = Vector2(9018, -6)
+
+[node name="SeaUrchin31" parent="." instance=ExtResource("4_awmrp")]
+position = Vector2(8414, -8)
+
 [node name="Seashell3" parent="." instance=ExtResource("4_yl7vi")]
 position = Vector2(2055, -132)
 
 [node name="Fish" parent="." instance=ExtResource("5_fvr4o")]
-position = Vector2(9700, -168)
+position = Vector2(9812, -168)
+
+[node name="Fish2" parent="." instance=ExtResource("5_fvr4o")]
+position = Vector2(12164, -270)
+
+[node name="Fish3" parent="." instance=ExtResource("5_fvr4o")]
+position = Vector2(12676, -350)

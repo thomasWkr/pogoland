@@ -1,10 +1,9 @@
-[gd_scene load_steps=10 format=4 uid="uid://mbv8mcxko8r"]
+[gd_scene load_steps=9 format=4 uid="uid://mbv8mcxko8r"]
 
 [ext_resource type="Texture2D" uid="uid://bl158qn5f0o22" path="res://Assets/Sprites/Floor.png" id="1_ft3d7"]
 [ext_resource type="Shader" path="res://Scenes/Objects/LayerShader.gdshader" id="1_jt2nl"]
 [ext_resource type="PackedScene" uid="uid://cd1qh7e6nmfip" path="res://Scenes/Objects/Spikes/Crab.tscn" id="3_5dsi7"]
 [ext_resource type="PackedScene" uid="uid://di3xh7l3prsgw" path="res://Scenes/Characters/Birds/Seagull.tscn" id="4_o14sv"]
-[ext_resource type="PackedScene" uid="uid://d4drw7af5brrc" path="res://Scenes/Objects/Collectables/Artifact.tscn" id="5_lc8j5"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_pjyye"]
 size = Vector2(376.95, 395)
@@ -115,17 +114,101 @@ position = Vector2(6129, 9)
 [node name="Crab16" parent="." instance=ExtResource("3_5dsi7")]
 position = Vector2(6201, 7)
 
+[node name="Crab17" parent="." instance=ExtResource("3_5dsi7")]
+position = Vector2(7000, 11)
+
+[node name="Crab18" parent="." instance=ExtResource("3_5dsi7")]
+position = Vector2(7063, 12)
+
+[node name="Crab19" parent="." instance=ExtResource("3_5dsi7")]
+position = Vector2(7127, 11)
+
+[node name="Crab20" parent="." instance=ExtResource("3_5dsi7")]
+position = Vector2(7190, 12)
+
+[node name="Crab21" parent="." instance=ExtResource("3_5dsi7")]
+position = Vector2(7256, 8)
+
+[node name="Crab22" parent="." instance=ExtResource("3_5dsi7")]
+position = Vector2(7319, 9)
+
+[node name="Crab23" parent="." instance=ExtResource("3_5dsi7")]
+position = Vector2(7383, 8)
+
+[node name="Crab24" parent="." instance=ExtResource("3_5dsi7")]
+position = Vector2(7446, 9)
+
+[node name="Crab25" parent="." instance=ExtResource("3_5dsi7")]
+position = Vector2(7514, 8)
+
+[node name="Crab26" parent="." instance=ExtResource("3_5dsi7")]
+position = Vector2(7577, 9)
+
+[node name="Crab27" parent="." instance=ExtResource("3_5dsi7")]
+position = Vector2(7641, 8)
+
+[node name="Crab28" parent="." instance=ExtResource("3_5dsi7")]
+position = Vector2(7704, 9)
+
+[node name="Crab29" parent="." instance=ExtResource("3_5dsi7")]
+position = Vector2(7770, 5)
+
+[node name="Crab30" parent="." instance=ExtResource("3_5dsi7")]
+position = Vector2(7833, 6)
+
+[node name="Crab31" parent="." instance=ExtResource("3_5dsi7")]
+position = Vector2(7897, 5)
+
+[node name="Crab32" parent="." instance=ExtResource("3_5dsi7")]
+position = Vector2(7960, 6)
+
+[node name="Crab33" parent="." instance=ExtResource("3_5dsi7")]
+position = Vector2(8027, 3)
+
+[node name="Crab34" parent="." instance=ExtResource("3_5dsi7")]
+position = Vector2(8090, 4)
+
+[node name="Crab35" parent="." instance=ExtResource("3_5dsi7")]
+position = Vector2(8154, 3)
+
+[node name="Crab36" parent="." instance=ExtResource("3_5dsi7")]
+position = Vector2(8217, 4)
+
+[node name="Crab37" parent="." instance=ExtResource("3_5dsi7")]
+position = Vector2(8283, 0)
+
+[node name="Crab38" parent="." instance=ExtResource("3_5dsi7")]
+position = Vector2(8346, 1)
+
+[node name="Crab39" parent="." instance=ExtResource("3_5dsi7")]
+position = Vector2(8410, 0)
+
+[node name="Crab40" parent="." instance=ExtResource("3_5dsi7")]
+position = Vector2(8473, 1)
+
+[node name="Crab41" parent="." instance=ExtResource("3_5dsi7")]
+position = Vector2(8541, 0)
+
+[node name="Crab42" parent="." instance=ExtResource("3_5dsi7")]
+position = Vector2(8604, 1)
+
+[node name="Crab43" parent="." instance=ExtResource("3_5dsi7")]
+position = Vector2(8668, 0)
+
+[node name="Crab44" parent="." instance=ExtResource("3_5dsi7")]
+position = Vector2(8731, 1)
+
 [node name="Seagull" parent="." instance=ExtResource("4_o14sv")]
-position = Vector2(7383, -93)
+position = Vector2(7407, -93)
 
 [node name="Seagull2" parent="." instance=ExtResource("4_o14sv")]
-position = Vector2(8843, -160)
-
-[node name="Artifact" parent="Seagull2" instance=ExtResource("5_lc8j5")]
-position = Vector2(4612, -380)
+position = Vector2(8835, -160)
 
 [node name="Seagull3" parent="." instance=ExtResource("4_o14sv")]
-position = Vector2(9131, -160)
+position = Vector2(9123, -160)
 
-[node name="Artifact" parent="Seagull3" instance=ExtResource("5_lc8j5")]
-position = Vector2(4612, -380)
+[node name="Seagull4" parent="." instance=ExtResource("4_o14sv")]
+position = Vector2(11300, -110)
+
+[node name="Seagull5" parent="." instance=ExtResource("4_o14sv")]
+position = Vector2(11740, -190)

@@ -1,9 +1,10 @@
-[gd_scene load_steps=9 format=4 uid="uid://ddwewto08vhwb"]
+[gd_scene load_steps=10 format=4 uid="uid://ddwewto08vhwb"]
 
 [ext_resource type="Shader" path="res://Scenes/Objects/LayerShader.gdshader" id="1_t5xti"]
 [ext_resource type="Texture2D" uid="uid://bl158qn5f0o22" path="res://Assets/Sprites/Floor.png" id="2_f7v0t"]
 [ext_resource type="PackedScene" uid="uid://vryoe4adofni" path="res://Scenes/Characters/Birds/Fairy.tscn" id="3_qpijs"]
 [ext_resource type="PackedScene" uid="uid://oaibfjmsr8gr" path="res://Scenes/Objects/Spikes/Tentacles.tscn" id="4_h5dwh"]
+[ext_resource type="PackedScene" uid="uid://daimenqyqnvkq" path="res://Scenes/Objects/Collectables/Scarab.tscn" id="5_8awot"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_omyqs"]
 size = Vector2(37543, 422)
@@ -70,7 +71,7 @@ tile_set = SubResource("TileSet_c3mrx")
 position = Vector2(3944, -116)
 
 [node name="Fairy2" parent="." instance=ExtResource("3_qpijs")]
-position = Vector2(9350, -160)
+position = Vector2(12852, -390)
 
 [node name="Tentacles" parent="." instance=ExtResource("4_h5dwh")]
 position = Vector2(5400, -6)
@@ -97,37 +98,109 @@ position = Vector2(5813, -8)
 position = Vector2(5881, -9)
 
 [node name="Tentacles9" parent="." instance=ExtResource("4_h5dwh")]
-position = Vector2(5954, -8)
+position = Vector2(5954, -4)
 
 [node name="Tentacles10" parent="." instance=ExtResource("4_h5dwh")]
-position = Vector2(6022, -8)
+position = Vector2(6022, -4)
 
 [node name="Tentacles11" parent="." instance=ExtResource("4_h5dwh")]
-position = Vector2(6094, -10)
+position = Vector2(6094, -3)
 
 [node name="Tentacles12" parent="." instance=ExtResource("4_h5dwh")]
-position = Vector2(6161, -10)
+position = Vector2(6161, -3)
 
 [node name="Tentacles13" parent="." instance=ExtResource("4_h5dwh")]
-position = Vector2(6229, -11)
+position = Vector2(6229, -4)
 
 [node name="Tentacles14" parent="." instance=ExtResource("4_h5dwh")]
-position = Vector2(6302, -10)
+position = Vector2(6302, -3)
 
 [node name="Tentacles15" parent="." instance=ExtResource("4_h5dwh")]
-position = Vector2(6370, -10)
+position = Vector2(6370, -7)
 
 [node name="Tentacles16" parent="." instance=ExtResource("4_h5dwh")]
-position = Vector2(6440, -12)
+position = Vector2(6440, -9)
 
 [node name="Tentacles17" parent="." instance=ExtResource("4_h5dwh")]
-position = Vector2(6507, -12)
+position = Vector2(6507, -1)
 
 [node name="Tentacles18" parent="." instance=ExtResource("4_h5dwh")]
-position = Vector2(6575, -13)
+position = Vector2(6575, -2)
 
 [node name="Tentacles19" parent="." instance=ExtResource("4_h5dwh")]
-position = Vector2(6648, -12)
+position = Vector2(6648, -4)
 
 [node name="Tentacles20" parent="." instance=ExtResource("4_h5dwh")]
-position = Vector2(6716, -12)
+position = Vector2(6716, -4)
+
+[node name="Tentacles21" parent="." instance=ExtResource("4_h5dwh")]
+position = Vector2(6787, -6)
+
+[node name="Tentacles22" parent="." instance=ExtResource("4_h5dwh")]
+position = Vector2(6854, -6)
+
+[node name="Tentacles23" parent="." instance=ExtResource("4_h5dwh")]
+position = Vector2(6922, -7)
+
+[node name="Tentacles24" parent="." instance=ExtResource("4_h5dwh")]
+position = Vector2(6995, -6)
+
+[node name="Tentacles25" parent="." instance=ExtResource("4_h5dwh")]
+position = Vector2(7063, -6)
+
+[node name="Tentacles26" parent="." instance=ExtResource("4_h5dwh")]
+position = Vector2(7133, -8)
+
+[node name="Tentacles27" parent="." instance=ExtResource("4_h5dwh")]
+position = Vector2(7200, -8)
+
+[node name="Tentacles28" parent="." instance=ExtResource("4_h5dwh")]
+position = Vector2(7268, -9)
+
+[node name="Tentacles29" parent="." instance=ExtResource("4_h5dwh")]
+position = Vector2(7341, -8)
+
+[node name="Tentacles30" parent="." instance=ExtResource("4_h5dwh")]
+position = Vector2(7409, -11)
+
+[node name="Tentacles31" parent="." instance=ExtResource("4_h5dwh")]
+position = Vector2(7480, -7)
+
+[node name="Tentacles39" parent="." instance=ExtResource("4_h5dwh")]
+position = Vector2(8505, -4)
+
+[node name="Tentacles40" parent="." instance=ExtResource("4_h5dwh")]
+position = Vector2(8578, -3)
+
+[node name="Tentacles41" parent="." instance=ExtResource("4_h5dwh")]
+position = Vector2(8646, -6)
+
+[node name="Tentacles42" parent="." instance=ExtResource("4_h5dwh")]
+position = Vector2(8717, -2)
+
+[node name="Tentacles32" parent="." instance=ExtResource("4_h5dwh")]
+position = Vector2(7548, -12)
+
+[node name="Tentacles33" parent="." instance=ExtResource("4_h5dwh")]
+position = Vector2(7621, -14)
+
+[node name="Tentacles34" parent="." instance=ExtResource("4_h5dwh")]
+position = Vector2(7689, -13)
+
+[node name="Tentacles35" parent="." instance=ExtResource("4_h5dwh")]
+position = Vector2(7905, -12)
+
+[node name="Tentacles36" parent="." instance=ExtResource("4_h5dwh")]
+position = Vector2(7973, -11)
+
+[node name="Tentacles37" parent="." instance=ExtResource("4_h5dwh")]
+position = Vector2(8043, -12)
+
+[node name="Tentacles38" parent="." instance=ExtResource("4_h5dwh")]
+position = Vector2(8111, -11)
+
+[node name="Tentacles43" parent="." instance=ExtResource("4_h5dwh")]
+position = Vector2(8175, -11)
+
+[node name="Scarab" parent="." instance=ExtResource("5_8awot")]
+position = Vector2(10894, -491)
